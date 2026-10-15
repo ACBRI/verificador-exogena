@@ -562,7 +562,7 @@ describe('salidas', () => {
     const periodicidad = { 300: 'bimestral', 350: 'mensual' };
     const plantilla = V.plantillaCSV(periodicidad).replace(/^﻿/, '').trim().split(/\r\n/);
     assert.equal(plantilla[0], 'Declaración;Casilla;Concepto;Periodo;Valor');
-    assert.equal(plantilla.length, 1 + 14 + 3 * 6 + 6 * 12);
+    assert.equal(plantilla.length, 1 + 13 + 3 * 6 + 6 * 12);
     // Se llenan dos filas y se pegan con tabuladores, como salen de Excel.
     const filas = plantilla.map((l) => l.split(';'));
     const r58 = filas.find((f) => f[0] === 'Renta 110' && f[1] === '58');

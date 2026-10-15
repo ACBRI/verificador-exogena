@@ -420,7 +420,6 @@ function empresa(tipo) {
   anual('r65', financieros);
   anual('r66', otros66);
   anual('r63', totalCostos - compras - ventas64 - financieros - otros66);
-  anual('r105', autorretencion);
   anual('r106', ret1003 + d('C7a'));
 
   porPeriodo('i67', ivaGenerado + d('C4'), B);

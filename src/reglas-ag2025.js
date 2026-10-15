@@ -476,7 +476,6 @@
         { id: 'r65', casilla: '65', nombre: 'Gastos financieros' },
         { id: 'r66', casilla: '66', nombre: 'Otros gastos y deducciones' },
         { id: 'r80', casilla: '80', nombre: 'Ingresos por ganancias ocasionales', opcional: true },
-        { id: 'r105', casilla: '105', nombre: 'Autorretenciones', opcional: true },
         { id: 'r106', casilla: '106', nombre: 'Otras retenciones' }
       ]
     },

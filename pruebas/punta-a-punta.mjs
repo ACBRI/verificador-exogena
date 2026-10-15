@@ -215,7 +215,7 @@ await paso('carga XML reales desde el disco y cifras pegadas desde Excel', async
   const pegado = fs.readFileSync(path.join(dir, 'declaraciones.csv'), 'utf8').replace(/^﻿/, '').replace(/;/g, '\t');
   await p.fill('#texto-pegado', pegado);
   await p.click('#leer-pegado');
-  await p.waitForFunction(() => /Se leyeron 79 cifras/.test(document.getElementById('estado-pegado').textContent));
+  await p.waitForFunction(() => /Se leyeron 78 cifras/.test(document.getElementById('estado-pegado').textContent));
   assert.equal(await p.inputValue('#per-350'), 'mensual');
   assert.deepEqual(await fichas(p), [0, 0, 8, 0]);
   assert.match(await p.textContent('#informe .revisiones'), /no encontraron nada/);
@@ -250,7 +250,7 @@ await paso('la plantilla para Excel se descarga con sus columnas', async () => {
   const [descarga] = await Promise.all([p.waitForEvent('download'), p.click('#descargar-plantilla')]);
   const csv = fs.readFileSync(await descarga.path(), 'utf8');
   assert.equal(csv.replace(/^﻿/, '').split(/\r\n/)[0], 'Declaración;Casilla;Concepto;Periodo;Valor');
-  assert.equal(csv.trim().split(/\r\n/).length, 1 + 14 + 18 + 72);
+  assert.equal(csv.trim().split(/\r\n/).length, 1 + 13 + 18 + 72);
 });
 await ctx.close();
 
