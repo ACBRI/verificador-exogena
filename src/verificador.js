@@ -232,7 +232,7 @@
       archivo.hallazgos = acum.lista();
       return archivo;
     }
-    if (dec.usada !== R.PARAMETROS.codificacion.valor) {
+    if (dec.usada !== R.PARAMETROS.codificacion.valor && !dec.avisos.length) {
       acum.agregar('codificacion', 'utf8', `El archivo está en ${dec.usada.toUpperCase()} y la especificación técnica pide ISO-8859-1.`);
     }
     if (raizDoc.nombre !== 'mas') {

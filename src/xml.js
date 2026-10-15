@@ -49,11 +49,51 @@
     return m ? m[1].toLowerCase() : '';
   }
 
+  // Los bytes 0x80 a 0x9F como los lee Windows (cp1252), que es lo que escriben
+  // los programas contables. Se decodifica a mano para que el navegador y cada
+  // versión de Node lean exactamente igual.
+  const CP1252 = [
+    0x20AC, 0x81, 0x201A, 0x0192, 0x201E, 0x2026, 0x2020, 0x2021, 0x02C6, 0x2030, 0x0160, 0x2039, 0x0152, 0x8D, 0x017D, 0x8F,
+    0x90, 0x2018, 0x2019, 0x201C, 0x201D, 0x2022, 0x2013, 0x2014, 0x02DC, 0x2122, 0x0161, 0x203A, 0x0153, 0x9D, 0x017E, 0x0178
+  ];
+
+  function decodificarLatin1(bytes) {
+    let texto = '';
+    const TROZO = 8192;
+    for (let i = 0; i < bytes.length; i += TROZO) {
+      const parte = bytes.subarray(i, i + TROZO);
+      const codigos = new Array(parte.length);
+      for (let k = 0; k < parte.length; k++) {
+        const b = parte[k];
+        codigos[k] = b >= 0x80 && b <= 0x9F ? CP1252[b - 0x80] : b;
+      }
+      texto += String.fromCharCode.apply(null, codigos);
+    }
+    return texto;
+  }
+
+  /** El texto, si los bytes son UTF-8 válido; si no, null. */
+  function comoUTF8(bytes) {
+    try {
+      return new TextDecoder('utf-8', { fatal: true }).decode(bytes);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function tieneBytesAltos(bytes) {
+    for (let k = 0; k < bytes.length; k++) if (bytes[k] >= 0x80) return true;
+    return false;
+  }
+
   /**
    * Convierte los bytes de un archivo en texto.
    * Devuelve { texto, declarada, usada, avisos }.
    * - Con marca BOM de UTF-8, se lee como UTF-8.
-   * - Si declara ISO-8859-1 (o una equivalente), se lee como tal.
+   * - Si declara ISO-8859-1 (o una equivalente), se lee como tal, salvo que sus
+   *   bytes sean UTF-8 válido con tildes: entonces el archivo está en UTF-8
+   *   aunque diga otra cosa (le pasa hasta a un esquema de la DIAN), se lee así
+   *   y se avisa. Un texto en ISO-8859-1 con tildes casi nunca es UTF-8 válido.
    * - Si declara UTF-8 o no declara nada, se lee como UTF-8; si los bytes no son
    *   UTF-8 válido, se lee como ISO-8859-1 y se avisa.
    */
@@ -70,16 +110,21 @@
       avisos.push(`El archivo declara la codificación «${declarada}», que el verificador no conoce; se leyó como ISO-8859-1.`);
       usada = 'iso-8859-1';
     }
-    let texto;
+    let texto = null;
     if (usada === 'utf-8') {
-      try {
-        texto = new TextDecoder('utf-8', { fatal: true }).decode(bytes);
-      } catch (e) {
+      texto = comoUTF8(bytes);
+      if (texto === null) {
         avisos.push('El archivo dice ser UTF-8 pero trae caracteres de otra codificación; se leyó como ISO-8859-1.');
         usada = 'iso-8859-1';
       }
+    } else if (!avisos.length && tieneBytesAltos(bytes)) {
+      texto = comoUTF8(bytes);
+      if (texto !== null) {
+        avisos.push('El archivo dice ser ISO-8859-1 pero está escrito en UTF-8; se leyó como UTF-8.');
+        usada = 'utf-8';
+      }
     }
-    if (usada === 'iso-8859-1') texto = new TextDecoder('windows-1252').decode(bytes);
+    if (usada === 'iso-8859-1') texto = decodificarLatin1(bytes);
     if (texto.charCodeAt(0) === 0xFEFF) texto = texto.slice(1);
     return { texto, declarada, usada, avisos };
   }

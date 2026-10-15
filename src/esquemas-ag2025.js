@@ -2182,7 +2182,7 @@
     "version": "4",
     "elemento": "rentra",
     "maxRegistros": null,
-    "documentacion": "InformaciÃ³n de rentas de trabajo y pensiones - Formato 2276v4",
+    "documentacion": "Información de rentas de trabajo y pensiones - Formato 2276v4",
     "cab": [
      {
       "nombre": "Ano",
@@ -2255,7 +2255,7 @@
       "patron": "[a-zA-Z0-9]+",
       "minLargo": 1,
       "maxLargo": 20,
-      "descripcion": "NÃºmero de identificaciÃ³n del beneficiario"
+      "descripcion": "Número de identificación del beneficiario"
      },
      {
       "nombre": "pap",
@@ -2295,7 +2295,7 @@
       "base": "string",
       "minLargo": 0,
       "maxLargo": 200,
-      "descripcion": "DirecciÃ³n del beneficiario"
+      "descripcion": "Dirección del beneficiario"
      },
      {
       "nombre": "dpto",
@@ -2316,7 +2316,7 @@
       "requerido": true,
       "base": "int",
       "patron": "[0-9]{1,4}",
-      "descripcion": "PaÃ­s del Beneficiario"
+      "descripcion": "País del Beneficiario"
      },
      {
       "nombre": "pasa",
@@ -2330,21 +2330,21 @@
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Pagos por emolumentos eclesiÃ¡sticos"
+      "descripcion": "Pagos por emolumentos eclesiásticos"
      },
      {
       "nombre": "pabop",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Pagos realizados con bonos electrÃ³nicos o de papel de servicio, cheques, tarjetas, vales, etc."
+      "descripcion": "Pagos realizados con bonos electrónicos o de papel de servicio, cheques, tarjetas, vales, etc."
      },
      {
       "nombre": "vaex",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Valor del exceso de los pagos por alimentaciÃ³n mayores a 41 UVT, art. 387-1 E.T."
+      "descripcion": "Valor del exceso de los pagos por alimentación mayores a 41 UVT, art. 387-1 E.T."
      },
      {
       "nombre": "paho",
@@ -2379,14 +2379,14 @@
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Pagos por viÃ¡ticos"
+      "descripcion": "Pagos por viáticos"
      },
      {
       "nombre": "paga",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Pagos por gastos de representaciÃ³n"
+      "descripcion": "Pagos por gastos de representación"
      },
      {
       "nombre": "patra",
@@ -2400,7 +2400,7 @@
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Valor apoyos econÃ³micos no reembolsables o condonados, entregados por el Estado o financiados con recursos pÃºblicos, para financiar programas educativos."
+      "descripcion": "Valor apoyos económicos no reembolsables o condonados, entregados por el Estado o financiados con recursos públicos, para financiar programas educativos."
      },
      {
       "nombre": "potro",
@@ -2414,35 +2414,35 @@
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "CesantÃ­as e intereses de cesantÃ­as efectivamente pagadas al empleado"
+      "descripcion": "Cesantías e intereses de cesantías efectivamente pagadas al empleado"
      },
      {
       "nombre": "ceco",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "CesantÃ­as consignadas al fondo de cesantÃ­as"
+      "descripcion": "Cesantías consignadas al fondo de cesantías"
      },
      {
       "nombre": "auce",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Auxilio de cesantÃ­as reconocido a trabajadores del rÃ©gimen tradicional del CÃ³digo Sustantivo del Trabajo, CapÃ­tulo VII, TÃ­tulo VIII Parte Primera"
+      "descripcion": "Auxilio de cesantías reconocido a trabajadores del régimen tradicional del Código Sustantivo del Trabajo, Capítulo VII, Título VIII Parte Primera"
      },
      {
       "nombre": "peju",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Pensiones de jubilaciÃ³n vejez o invalidez"
+      "descripcion": "Pensiones de jubilación vejez o invalidez"
      },
      {
       "nombre": "tingbtp",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Total Ingresos brutos por rentas de trabajo y pensiÃ³n"
+      "descripcion": "Total Ingresos brutos por rentas de trabajo y pensión"
      },
      {
       "nombre": "apos",
@@ -2463,7 +2463,7 @@
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Aportes voluntarios al rÃ©gimen de ahorro individual con solidaridad - RAIS"
+      "descripcion": "Aportes voluntarios al régimen de ahorro individual con solidaridad - RAIS"
      },
      {
       "nombre": "apov",
@@ -2498,35 +2498,35 @@
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Impuesto sobre las ventas â IVA, mayor valor del costo o gasto"
+      "descripcion": "Impuesto sobre las ventas – IVA, mayor valor del costo o gasto"
      },
      {
       "nombre": "rfiva",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "RetenciÃ³n en la fuente a tÃ­tulo de impuesto sobre las ventas â IVA."
+      "descripcion": "Retención en la fuente a título de impuesto sobre las ventas – IVA."
      },
      {
       "nombre": "pagahuvt",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Pagos por alimentaciÃ³n hasta a 41 UVT"
+      "descripcion": "Pagos por alimentación hasta a 41 UVT"
      },
      {
       "nombre": "vilap",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Valor ingreso laboral promedio de los Ãºltimos seis meses."
+      "descripcion": "Valor ingreso laboral promedio de los últimos seis meses."
      },
      {
       "nombre": "tdocde",
       "requerido": false,
       "base": "int",
       "patron": "[0-9]{0,2}",
-      "descripcion": "Tipo de documento del dependiente econÃ³mico"
+      "descripcion": "Tipo de documento del dependiente económico"
      },
      {
       "nombre": "nitde",
@@ -2535,21 +2535,21 @@
       "patron": "[a-zA-Z0-9]*",
       "minLargo": 0,
       "maxLargo": 20,
-      "descripcion": "NÃºmero de IdentificaciÃ³n del dependiente econÃ³mico"
+      "descripcion": "Número de Identificación del dependiente económico"
      },
      {
       "nombre": "identfc",
       "requerido": false,
       "base": "string",
       "patron": "[0-9]{0,14}",
-      "descripcion": "IdentificaciÃ³n del fideicomiso o contrato"
+      "descripcion": "Identificación del fideicomiso o contrato"
      },
      {
       "nombre": "tdocpcc",
       "requerido": false,
       "base": "int",
       "patron": "[0-9]{0,2}",
-      "descripcion": "Tipo documento participante en contrato de colaboraciÃ³n"
+      "descripcion": "Tipo documento participante en contrato de colaboración"
      },
      {
       "nombre": "nitpcc",
@@ -2558,7 +2558,7 @@
       "patron": "[a-zA-Z0-9]*",
       "minLargo": 0,
       "maxLargo": 20,
-      "descripcion": "IdentificaciÃ³n participante en contrato colaboraciÃ³n"
+      "descripcion": "Identificación participante en contrato colaboración"
      }
     ]
    }

@@ -102,6 +102,20 @@ describe('codificación', () => {
     assert.equal(d.avisos.length, 1);
     assert.equal(X.leer(d.texto).atributos.a, 'Ñ');
   });
+  test('dice ISO-8859-1 pero está en UTF-8: se lee como UTF-8 y se avisa', () => {
+    const bytes = Buffer.from('<?xml version="1.0" encoding="ISO-8859-1"?><mas a="Número – Ñ"/>', 'utf8');
+    const d = X.decodificar(bytes);
+    assert.equal(d.usada, 'utf-8');
+    assert.match(d.avisos[0], /está escrito en UTF-8/);
+    assert.equal(X.leer(d.texto).atributos.a, 'Número – Ñ');
+  });
+  test('los bytes 0x80 a 0x9F se leen como en Windows, igual en todas partes', () => {
+    const bytes = Buffer.concat([Buffer.from('<?xml version="1.0" encoding="ISO-8859-1"?><mas a="'), Buffer.from([0x80, 0x93, 0x96, 0x81, 0xD1]), Buffer.from('"/>')]);
+    const d = X.decodificar(bytes);
+    assert.equal(d.usada, 'iso-8859-1');
+    assert.deepEqual(d.avisos, []);
+    assert.equal(X.leer(d.texto).atributos.a, '\u20AC\u201C\u2013\u0081Ñ');
+  });
   test('codificación desconocida', () => {
     const d = X.decodificar(Buffer.from('<?xml version="1.0" encoding="EBCDIC-X"?><mas/>'));
     assert.equal(d.usada, 'iso-8859-1');

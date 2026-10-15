@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-SBruNZvdPld35ImDCY1txZsnR1Y/eRdMyLmr7/9rvpg=' 'sha256-i1tz4rDM9Y1EeCO38xnvGc2U1DXvUgXlmFQKrwaS8fY='; style-src 'sha256-GCnvLkH24+c8BUSxDMAapxsOHB7uGez1LRUGGSDI6jA='; font-src data:; img-src data: blob:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; media-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-SBruNZvdPld35ImDCY1txZsnR1Y/eRdMyLmr7/9rvpg=' 'sha256-faS/SVlFY7cGdaB66MJN2farH2QrPRKKsQm/DDJqjT8='; style-src 'sha256-GCnvLkH24+c8BUSxDMAapxsOHB7uGez1LRUGGSDI6jA='; font-src data:; img-src data: blob:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; media-src 'none'">
   <meta name="referrer" content="no-referrer">
   <title>Verificador de exógena</title>
   <meta name="description" content="Cruza la exógena del año gravable 2025 con la renta, el IVA y las retenciones, y muestra con semáforo dónde no cuadra. Funciona sin internet; los datos no salen del computador.">
@@ -2385,11 +2385,51 @@ textarea:focus-visible {
     return m ? m[1].toLowerCase() : '';
   }
 
+  // Los bytes 0x80 a 0x9F como los lee Windows (cp1252), que es lo que escriben
+  // los programas contables. Se decodifica a mano para que el navegador y cada
+  // versión de Node lean exactamente igual.
+  const CP1252 = [
+    0x20AC, 0x81, 0x201A, 0x0192, 0x201E, 0x2026, 0x2020, 0x2021, 0x02C6, 0x2030, 0x0160, 0x2039, 0x0152, 0x8D, 0x017D, 0x8F,
+    0x90, 0x2018, 0x2019, 0x201C, 0x201D, 0x2022, 0x2013, 0x2014, 0x02DC, 0x2122, 0x0161, 0x203A, 0x0153, 0x9D, 0x017E, 0x0178
+  ];
+
+  function decodificarLatin1(bytes) {
+    let texto = '';
+    const TROZO = 8192;
+    for (let i = 0; i < bytes.length; i += TROZO) {
+      const parte = bytes.subarray(i, i + TROZO);
+      const codigos = new Array(parte.length);
+      for (let k = 0; k < parte.length; k++) {
+        const b = parte[k];
+        codigos[k] = b >= 0x80 && b <= 0x9F ? CP1252[b - 0x80] : b;
+      }
+      texto += String.fromCharCode.apply(null, codigos);
+    }
+    return texto;
+  }
+
+  /** El texto, si los bytes son UTF-8 válido; si no, null. */
+  function comoUTF8(bytes) {
+    try {
+      return new TextDecoder('utf-8', { fatal: true }).decode(bytes);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function tieneBytesAltos(bytes) {
+    for (let k = 0; k < bytes.length; k++) if (bytes[k] >= 0x80) return true;
+    return false;
+  }
+
   /**
    * Convierte los bytes de un archivo en texto.
    * Devuelve { texto, declarada, usada, avisos }.
    * - Con marca BOM de UTF-8, se lee como UTF-8.
-   * - Si declara ISO-8859-1 (o una equivalente), se lee como tal.
+   * - Si declara ISO-8859-1 (o una equivalente), se lee como tal, salvo que sus
+   *   bytes sean UTF-8 válido con tildes: entonces el archivo está en UTF-8
+   *   aunque diga otra cosa (le pasa hasta a un esquema de la DIAN), se lee así
+   *   y se avisa. Un texto en ISO-8859-1 con tildes casi nunca es UTF-8 válido.
    * - Si declara UTF-8 o no declara nada, se lee como UTF-8; si los bytes no son
    *   UTF-8 válido, se lee como ISO-8859-1 y se avisa.
    */
@@ -2406,16 +2446,21 @@ textarea:focus-visible {
       avisos.push(`El archivo declara la codificación «${declarada}», que el verificador no conoce; se leyó como ISO-8859-1.`);
       usada = 'iso-8859-1';
     }
-    let texto;
+    let texto = null;
     if (usada === 'utf-8') {
-      try {
-        texto = new TextDecoder('utf-8', { fatal: true }).decode(bytes);
-      } catch (e) {
+      texto = comoUTF8(bytes);
+      if (texto === null) {
         avisos.push('El archivo dice ser UTF-8 pero trae caracteres de otra codificación; se leyó como ISO-8859-1.');
         usada = 'iso-8859-1';
       }
+    } else if (!avisos.length && tieneBytesAltos(bytes)) {
+      texto = comoUTF8(bytes);
+      if (texto !== null) {
+        avisos.push('El archivo dice ser ISO-8859-1 pero está escrito en UTF-8; se leyó como UTF-8.');
+        usada = 'utf-8';
+      }
     }
-    if (usada === 'iso-8859-1') texto = new TextDecoder('windows-1252').decode(bytes);
+    if (usada === 'iso-8859-1') texto = decodificarLatin1(bytes);
     if (texto.charCodeAt(0) === 0xFEFF) texto = texto.slice(1);
     return { texto, declarada, usada, avisos };
   }
@@ -4828,7 +4873,7 @@ textarea:focus-visible {
     "version": "4",
     "elemento": "rentra",
     "maxRegistros": null,
-    "documentacion": "InformaciÃ³n de rentas de trabajo y pensiones - Formato 2276v4",
+    "documentacion": "Información de rentas de trabajo y pensiones - Formato 2276v4",
     "cab": [
      {
       "nombre": "Ano",
@@ -4901,7 +4946,7 @@ textarea:focus-visible {
       "patron": "[a-zA-Z0-9]+",
       "minLargo": 1,
       "maxLargo": 20,
-      "descripcion": "NÃºmero de identificaciÃ³n del beneficiario"
+      "descripcion": "Número de identificación del beneficiario"
      },
      {
       "nombre": "pap",
@@ -4941,7 +4986,7 @@ textarea:focus-visible {
       "base": "string",
       "minLargo": 0,
       "maxLargo": 200,
-      "descripcion": "DirecciÃ³n del beneficiario"
+      "descripcion": "Dirección del beneficiario"
      },
      {
       "nombre": "dpto",
@@ -4962,7 +5007,7 @@ textarea:focus-visible {
       "requerido": true,
       "base": "int",
       "patron": "[0-9]{1,4}",
-      "descripcion": "PaÃ­s del Beneficiario"
+      "descripcion": "País del Beneficiario"
      },
      {
       "nombre": "pasa",
@@ -4976,21 +5021,21 @@ textarea:focus-visible {
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Pagos por emolumentos eclesiÃ¡sticos"
+      "descripcion": "Pagos por emolumentos eclesiásticos"
      },
      {
       "nombre": "pabop",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Pagos realizados con bonos electrÃ³nicos o de papel de servicio, cheques, tarjetas, vales, etc."
+      "descripcion": "Pagos realizados con bonos electrónicos o de papel de servicio, cheques, tarjetas, vales, etc."
      },
      {
       "nombre": "vaex",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Valor del exceso de los pagos por alimentaciÃ³n mayores a 41 UVT, art. 387-1 E.T."
+      "descripcion": "Valor del exceso de los pagos por alimentación mayores a 41 UVT, art. 387-1 E.T."
      },
      {
       "nombre": "paho",
@@ -5025,14 +5070,14 @@ textarea:focus-visible {
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Pagos por viÃ¡ticos"
+      "descripcion": "Pagos por viáticos"
      },
      {
       "nombre": "paga",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Pagos por gastos de representaciÃ³n"
+      "descripcion": "Pagos por gastos de representación"
      },
      {
       "nombre": "patra",
@@ -5046,7 +5091,7 @@ textarea:focus-visible {
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Valor apoyos econÃ³micos no reembolsables o condonados, entregados por el Estado o financiados con recursos pÃºblicos, para financiar programas educativos."
+      "descripcion": "Valor apoyos económicos no reembolsables o condonados, entregados por el Estado o financiados con recursos públicos, para financiar programas educativos."
      },
      {
       "nombre": "potro",
@@ -5060,35 +5105,35 @@ textarea:focus-visible {
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "CesantÃ­as e intereses de cesantÃ­as efectivamente pagadas al empleado"
+      "descripcion": "Cesantías e intereses de cesantías efectivamente pagadas al empleado"
      },
      {
       "nombre": "ceco",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "CesantÃ­as consignadas al fondo de cesantÃ­as"
+      "descripcion": "Cesantías consignadas al fondo de cesantías"
      },
      {
       "nombre": "auce",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Auxilio de cesantÃ­as reconocido a trabajadores del rÃ©gimen tradicional del CÃ³digo Sustantivo del Trabajo, CapÃ­tulo VII, TÃ­tulo VIII Parte Primera"
+      "descripcion": "Auxilio de cesantías reconocido a trabajadores del régimen tradicional del Código Sustantivo del Trabajo, Capítulo VII, Título VIII Parte Primera"
      },
      {
       "nombre": "peju",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Pensiones de jubilaciÃ³n vejez o invalidez"
+      "descripcion": "Pensiones de jubilación vejez o invalidez"
      },
      {
       "nombre": "tingbtp",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Total Ingresos brutos por rentas de trabajo y pensiÃ³n"
+      "descripcion": "Total Ingresos brutos por rentas de trabajo y pensión"
      },
      {
       "nombre": "apos",
@@ -5109,7 +5154,7 @@ textarea:focus-visible {
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Aportes voluntarios al rÃ©gimen de ahorro individual con solidaridad - RAIS"
+      "descripcion": "Aportes voluntarios al régimen de ahorro individual con solidaridad - RAIS"
      },
      {
       "nombre": "apov",
@@ -5144,35 +5189,35 @@ textarea:focus-visible {
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Impuesto sobre las ventas â IVA, mayor valor del costo o gasto"
+      "descripcion": "Impuesto sobre las ventas – IVA, mayor valor del costo o gasto"
      },
      {
       "nombre": "rfiva",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "RetenciÃ³n en la fuente a tÃ­tulo de impuesto sobre las ventas â IVA."
+      "descripcion": "Retención en la fuente a título de impuesto sobre las ventas – IVA."
      },
      {
       "nombre": "pagahuvt",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Pagos por alimentaciÃ³n hasta a 41 UVT"
+      "descripcion": "Pagos por alimentación hasta a 41 UVT"
      },
      {
       "nombre": "vilap",
       "requerido": true,
       "base": "long",
       "patron": "[0-9]{1,18}",
-      "descripcion": "Valor ingreso laboral promedio de los Ãºltimos seis meses."
+      "descripcion": "Valor ingreso laboral promedio de los últimos seis meses."
      },
      {
       "nombre": "tdocde",
       "requerido": false,
       "base": "int",
       "patron": "[0-9]{0,2}",
-      "descripcion": "Tipo de documento del dependiente econÃ³mico"
+      "descripcion": "Tipo de documento del dependiente económico"
      },
      {
       "nombre": "nitde",
@@ -5181,21 +5226,21 @@ textarea:focus-visible {
       "patron": "[a-zA-Z0-9]*",
       "minLargo": 0,
       "maxLargo": 20,
-      "descripcion": "NÃºmero de IdentificaciÃ³n del dependiente econÃ³mico"
+      "descripcion": "Número de Identificación del dependiente económico"
      },
      {
       "nombre": "identfc",
       "requerido": false,
       "base": "string",
       "patron": "[0-9]{0,14}",
-      "descripcion": "IdentificaciÃ³n del fideicomiso o contrato"
+      "descripcion": "Identificación del fideicomiso o contrato"
      },
      {
       "nombre": "tdocpcc",
       "requerido": false,
       "base": "int",
       "patron": "[0-9]{0,2}",
-      "descripcion": "Tipo documento participante en contrato de colaboraciÃ³n"
+      "descripcion": "Tipo documento participante en contrato de colaboración"
      },
      {
       "nombre": "nitpcc",
@@ -5204,7 +5249,7 @@ textarea:focus-visible {
       "patron": "[a-zA-Z0-9]*",
       "minLargo": 0,
       "maxLargo": 20,
-      "descripcion": "IdentificaciÃ³n participante en contrato colaboraciÃ³n"
+      "descripcion": "Identificación participante en contrato colaboración"
      }
     ]
    }
@@ -8244,7 +8289,7 @@ textarea:focus-visible {
       archivo.hallazgos = acum.lista();
       return archivo;
     }
-    if (dec.usada !== R.PARAMETROS.codificacion.valor) {
+    if (dec.usada !== R.PARAMETROS.codificacion.valor && !dec.avisos.length) {
       acum.agregar('codificacion', 'utf8', `El archivo está en ${dec.usada.toUpperCase()} y la especificación técnica pide ISO-8859-1.`);
     }
     if (raizDoc.nombre !== 'mas') {
