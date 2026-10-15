@@ -1882,9 +1882,15 @@ textarea:focus-visible {
     box-shadow: inset 3px 0 0 var(--candela);
   }
 
+  /*
+   * Firefox y Safari redondean hacia arriba el alto de cada fila de la tabla, y
+   * Chrome no: con 1,15 de interlineado y el semáforo en 1,35, el informe de
+   * ejemplo pasaba la hoja carta por 5 px en Firefox y el pie saltaba a una
+   * segunda hoja. Con estos valores queda a unos 20 px del borde en los tres.
+   */
   .cruces {
     font-size: 7pt;
-    line-height: 1.15;
+    line-height: 1.1;
   }
 
   .cruces th {
@@ -1893,7 +1899,7 @@ textarea:focus-visible {
   }
 
   .cruces td {
-    padding: 1px 4px;
+    padding: 1px 4px 0.5px;
   }
 
   .cruces td.numero {
@@ -1915,7 +1921,7 @@ textarea:focus-visible {
   .semaforo {
     padding: 0 4px;
     font-size: 6.2pt;
-    line-height: 1.35;
+    line-height: 1.2;
     gap: 3px;
   }
 
@@ -1994,8 +2000,10 @@ textarea:focus-visible {
     font-size: 5.5pt;
   }
 
+  /* Diez dígitos de Plex Mono ocupan 6 em, más los 3 px de relleno: con 6,4 em
+     quedaba a una fracción de píxel y Safari cortaba el NIT con puntos suspensivos. */
   .terceros td.nid {
-    width: 6.4em;
+    width: 6.9em;
   }
 
   .terceros td.valor {

@@ -19,7 +19,7 @@ concurrency:
 jobs:
   pruebas:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -32,7 +32,8 @@ jobs:
         run: npm ci
       - name: Pruebas de la lógica, las reglas, los ejemplos y la página
         run: npm test
-      - name: Navegador para la prueba de punta a punta
-        run: npx playwright-core install --with-deps --only-shell chromium
-      - name: Prueba de punta a punta en Chromium sin internet
+      # Los tres motores de Windows y Mac: Chromium (Chrome y Edge), Firefox y WebKit (Safari).
+      - name: Navegadores para la prueba de punta a punta
+        run: npx playwright-core install --with-deps --only-shell chromium firefox webkit
+      - name: Prueba de punta a punta en Chromium, Firefox y WebKit sin internet
         run: npm run punta

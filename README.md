@@ -32,8 +32,8 @@ para pedir ayuda sin compartir datos de terceros.
 
 ## Cómo usarlo
 
-1. Copie `verificador-exogena.html` en su computador y ábralo con doble clic. Sirve Chrome, Edge o
-   Firefox, y no necesita internet ni instalar nada.
+1. Copie `verificador-exogena.html` en su computador y ábralo con doble clic. Sirve Chrome, Edge, Firefox
+   o Safari, en Windows o en Mac, y no necesita internet ni instalar nada.
 2. **Los XML.** Arrástrelos a la página o elíjalos: los del año gravable 2025 que presentó (1001, 1003,
    1005, 1006, 1007, 1008, 1009, 1010, 1012 y 2276, los que tenga). Si un formato salió en varios
    archivos, cárguelos todos; si hubo reemplazos, solo los vigentes. Si no los tiene, se bajan de la DIAN
@@ -225,6 +225,31 @@ quedó apuntando a un atributo que ya no existe.
 - El resumen sin NIT no trae números de identificación ni nombres de terceros, pero sí las cifras de cada
   cruce: compártalo solo si quiere.
 
+## Navegadores probados
+
+La prueba de punta a punta pasa completa en los tres motores de navegador que hay en Windows y en Mac.
+Se corrió el 15 de octubre de 2026 con Playwright 1.61.1, en Ubuntu 26.04:
+
+| Motor | Versión | Es el de | Resultado |
+| --- | --- | --- | --- |
+| Chromium | 149.0.7827.55 | Chrome y Edge, en Windows y en Mac | 17 de 17 pasos |
+| Firefox | 151.0 | Firefox, en Windows y en Mac | 17 de 17 pasos |
+| WebKit | 26.5 | Safari, en Mac | 17 de 17 pasos |
+
+En cada motor abre la página con doble clic y sin internet, en escritorio y en teléfono, carga los
+ejemplos y XML del disco, pega cifras como desde Excel, imprime, descarga el CSV y la plantilla, y revisa
+que no salga ninguna petición ni ningún error en la consola.
+
+Probar en Firefox y en WebKit destapó dos defectos del informe impreso, ya corregidos y con su prueba:
+
+- **El pie saltaba a una segunda hoja.** Firefox y Safari redondean hacia arriba el alto de cada fila de la
+  tabla, y el informe de ejemplo se pasaba de la hoja carta por 3 a 5 px. Ahora queda a unos 20 px del
+  borde en los tres motores.
+- **El NIT de los terceros salía cortado** («19900020…»): la columna quedaba a una fracción de píxel de sus
+  diez dígitos.
+
+Falta abrirlo en un Windows y en un Mac de verdad: está en «Pendiente».
+
 ## Pendiente
 
 Lo que no se pudo confirmar o terminar, y por qué:
@@ -236,8 +261,9 @@ Lo que no se pudo confirmar o terminar, y por qué:
   Office, ContaPyme u otros). Es la primera prueba con la contadora.
 - **Los XML que se bajan de la DIAN.** No se comprobó que el servicio de consulta de lo presentado entregue
   el mismo XML que se envió.
-- **Windows y Edge.** Se probó en Chromium (el motor de Edge) en Linux. Falta abrirlo en Windows con Edge y
-  sin internet, y en Firefox.
+- **Un Windows y un Mac de verdad.** Los tres motores pasan la prueba completa, pero en Linux. Falta abrir la
+  página en un Windows con Edge y en un Mac con Safari, sin internet: doble clic, imprimir el informe y
+  descargar el CSV.
 - **El tiempo por cliente.** El objetivo es el primer resultado en menos de 15 minutos; falta medirlo con
   un contador que no lo conozca.
 - **Qué hace la DIAN con un reemplazo.** No se confirmó si un archivo de reemplazo sustituye todo lo enviado
@@ -275,19 +301,24 @@ npm test
 ```
 
 Cubren el lector de XML, los datos oficiales al día con `norma/`, las reglas contra los esquemas y las
-tablas del prevalidador, cada cruce, cada revisión, las salidas, las dos empresas de ejemplo y la página
+tablas del prevalidador, cada cruce, cada revisión, las salidas, las dos empresas de ejemplo, la página
 armada (al día, sin recursos de otro sitio y con su política de seguridad).
 
-La prueba de punta a punta abre la página en un Chromium sin cabeza, con doble clic y sin internet, en
-escritorio, teléfono y modo oscuro; comprueba que el informe impreso cabe en una hoja y deja las capturas
-en `docs/capturas/`:
+La prueba de punta a punta abre la página en Chromium, Firefox y WebKit sin ventana, con doble clic y sin
+internet, en escritorio, teléfono y modo oscuro; comprueba que el informe impreso cabe en una hoja y deja
+las capturas de Chromium en `docs/capturas/` (las de los otros dos, en `pruebas/salida/`):
 
 ```bash
 npm install
-npm run punta
+npx playwright-core install --only-shell chromium firefox webkit
+npm run punta                     # los tres motores
+npm run punta -- firefox webkit   # solo esos
 ```
 
-Cada envío a GitHub corre las dos en máquinas de GitHub (`.github/workflows/pruebas.yml`).
+En Linux, WebKit pide además unas bibliotecas del sistema: `sudo npx playwright-core install-deps webkit`.
+
+Cada envío a GitHub corre las dos pruebas, la de punta a punta en los tres motores, en máquinas de GitHub
+(`.github/workflows/pruebas.yml`).
 
 ### Las empresas de ejemplo
 
