@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--CSP-->
+  <meta name="referrer" content="no-referrer">
+  <title>Verificador de exógena</title>
+  <meta name="description" content="Cruza la exógena del año gravable 2025 con la renta, el IVA y las retenciones, y muestra con semáforo dónde no cuadra. Funciona sin internet; los datos no salen del computador.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#1C1A2E">
+  <link rel="icon" href="<!--FAVICON-->">
+  <script><!--TEMA--></script>
+  <style><!--ESTILOS--></style>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Ir al contenido</a>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-barra">
+      <span class="firma">
+        <!--LOGO-->
+        <span>Andrés Briñez</span>
+      </span>
+      <button type="button" class="boton-tema" id="boton-tema" aria-pressed="false">
+        <svg class="icono-luna" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="icono-sol" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5"/></svg>
+        <span>Modo oscuro</span>
+      </button>
+    </div>
+    <div class="contenedor cabecera-cuerpo">
+      <p class="ceja">Herramienta gratuita · Funciona sin internet</p>
+      <h1>Verificador de exógena</h1>
+      <p class="entrada">Cruce la exógena del año gravable 2025 que ya presentó con su renta, su IVA y sus retenciones, y vea con semáforo dónde no cuadra.</p>
+      <p class="privacidad">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="10.5" width="14" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span><strong>Sus datos no salen de este computador.</strong> La página no tiene servidor ni se conecta a nada: funciona sin internet, y lo que carga existe solo mientras la tenga abierta.</span>
+      </p>
+    </div>
+    <svg class="horizonte" viewBox="0 0 1200 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 18 H1200"/></svg>
+  </header>
+
+  <main id="contenido">
+    <noscript>
+      <div class="contenedor"><p class="error">El verificador hace la cuenta en su navegador y necesita JavaScript activado.</p></div>
+    </noscript>
+
+    <section class="paso" id="paso-xml" aria-labelledby="titulo-xml">
+      <div class="contenedor">
+        <div class="paso-titulo"><span class="folio">01 /</span><h2 id="titulo-xml">Los XML de la exógena</h2></div>
+        <p class="paso-entrada">Los archivos del año gravable 2025 que presentó: 1001, 1003, 1005, 1006, 1007, 1008, 1009, 1010, 1012 y 2276, los que tenga. Si un formato salió en varios archivos, cárguelos todos; si hubo reemplazos, solo los vigentes.</p>
+
+        <div class="carga">
+          <div>
+            <label class="soltar" id="soltar" for="archivos-xml">
+              <input type="file" id="archivos-xml" class="visualmente-oculto" accept=".xml,text/xml,application/xml" multiple>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M6 2.8h8l4 4v14.4H6z"/><path fill="none" stroke="currentColor" stroke-width="1.6" d="M14 2.8v4h4"/><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 17.5v-6.5M9.2 13.6 12 10.8l2.8 2.8"/></svg>
+              <span class="soltar-titulo"><span class="con-puntero">Arrastre aquí los XML o <span class="enlace">elíjalos</span></span><span class="tactil"><span class="enlace">Elija los XML</span></span></span>
+              <span class="soltar-nota">Archivos .xml, uno o varios a la vez</span>
+            </label>
+            <p class="estado-carga" id="estado-carga" role="status"></p>
+          </div>
+          <div class="carga-ejemplo">
+            <p>¿Quiere verlo antes con datos de ejemplo?</p>
+            <button type="button" class="boton" data-ejemplo="diferencias">Empresa con diferencias</button>
+            <button type="button" class="boton-secundario" data-ejemplo="cuadra">Empresa que cuadra</button>
+            <p class="nota">Dos empresas ficticias del año gravable 2025, con sus XML y las cifras de sus declaraciones.</p>
+          </div>
+        </div>
+
+        <div id="lista-archivos" hidden>
+          <div class="tabla-marco">
+            <table class="tabla tabla-archivos">
+              <caption class="visualmente-oculto">Archivos cargados</caption>
+              <thead><tr><th>Archivo</th><th>Formato</th><th class="numero">Registros</th><th class="numero">Envío</th><th>Estado</th><th><span class="visualmente-oculto">Quitar</span></th></tr></thead>
+              <tbody id="cuerpo-archivos"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <fieldset class="cliente">
+          <legend>El cliente</legend>
+          <div class="campo">
+            <label for="cliente-nombre">Nombre o razón social <span class="opcional">(opcional)</span></label>
+            <input type="text" id="cliente-nombre" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="campo">
+            <label for="cliente-nit">NIT sin dígito de verificación <span class="opcional">(opcional)</span></label>
+            <input type="text" id="cliente-nit" inputmode="numeric" autocomplete="off" aria-describedby="ayuda-nit">
+            <p class="ayuda" id="ayuda-nit">Con el NIT se revisa que los conceptos que van a nombre del informante lo lleven.</p>
+          </div>
+          <label class="casilla"><input type="checkbox" id="cliente-juridica" checked> Es persona jurídica (reporta el 1010)</label>
+        </fieldset>
+      </div>
+    </section>
+
+    <section class="paso" id="paso-cifras" aria-labelledby="titulo-cifras">
+      <div class="contenedor">
+        <div class="paso-titulo"><span class="folio">02 /</span><h2 id="titulo-cifras">Las cifras de las declaraciones</h2></div>
+        <p class="paso-entrada">Las del año gravable 2025, de la última versión de cada declaración: si corrigió, la corrección. Puede escribir el total del año o el detalle por periodo, que dice en qué declaración mirar primero. También puede llenar la plantilla en Excel y pegarla aquí.</p>
+
+        <div class="cifras-barra">
+          <div class="campo">
+            <label for="per-300">IVA (300)</label>
+            <select id="per-300">
+              <option value="anual">Total del año</option>
+              <option value="bimestral">Bimestral</option>
+              <option value="cuatrimestral">Cuatrimestral</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="per-350">Retenciones (350)</label>
+            <select id="per-350">
+              <option value="anual">Total del año</option>
+              <option value="mensual">Mensual</option>
+            </select>
+          </div>
+          <div class="cifras-acciones">
+            <button type="button" class="boton-secundario" id="descargar-plantilla">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></svg>
+              Plantilla para Excel
+            </button>
+          </div>
+        </div>
+
+        <details class="pegar" id="pegar">
+          <summary>Pegar desde Excel</summary>
+          <div class="pegar-cuerpo">
+            <p class="nota">Copie en Excel las filas de la plantilla (con sus cinco columnas: declaración, casilla, concepto, periodo y valor) y péguelas aquí. Las filas sin valor se ignoran.</p>
+            <label for="texto-pegado" class="visualmente-oculto">Filas pegadas desde Excel</label>
+            <textarea id="texto-pegado" rows="6" spellcheck="false"></textarea>
+            <div class="pegar-acciones">
+              <button type="button" class="boton" id="leer-pegado">Leer lo pegado</button>
+              <p class="estado-carga" id="estado-pegado" role="status"></p>
+            </div>
+          </div>
+        </details>
+
+        <p class="nota pista">En las tablas de cada declaración también puede pegar una columna o un bloque copiado de Excel: se reparte desde la celda donde pegue.</p>
+        <div class="declaraciones" id="declaraciones"></div>
+      </div>
+    </section>
+
+    <section class="paso" id="paso-informe" aria-labelledby="titulo-informe">
+      <div class="contenedor">
+        <div class="paso-titulo"><span class="folio">03 /</span><h2 id="titulo-informe">El informe</h2></div>
+        <form class="parametros" id="parametros" novalidate>
+          <div class="campo">
+            <label for="p-uvt">UVT de 2025</label>
+            <div class="con-unidad"><span class="unidad antes">$</span><input type="text" id="p-uvt" inputmode="numeric" autocomplete="off" value="49.799" aria-describedby="a-uvt"></div>
+            <p class="ayuda" id="a-uvt">Resolución DIAN 000193 de 2024.</p>
+          </div>
+          <div class="campo">
+            <label for="p-umbral">Umbral del rojo</label>
+            <div class="con-unidad"><input type="text" id="p-umbral" inputmode="decimal" autocomplete="off" value="20" aria-describedby="a-umbral"><span class="unidad">UVT</span></div>
+            <p class="ayuda" id="a-umbral">Verde por debajo de 1 UVT; amarillo por debajo del umbral; rojo desde el umbral.</p>
+          </div>
+        </form>
+
+        <div class="vacio" id="informe-vacio">
+          <p>Cuando cargue los XML y escriba las cifras, aquí aparece el informe: los ocho cruces con semáforo, las causas que hay que mirar, los terceros que más pesan y las revisiones de los XML.</p>
+          <button type="button" class="boton-secundario" data-ejemplo="diferencias">Verlo con la empresa de ejemplo</button>
+        </div>
+
+        <article class="hoja" id="informe" hidden aria-label="Informe del verificador"></article>
+
+        <div class="acciones-informe" id="acciones-informe" hidden>
+          <button type="button" class="boton" id="imprimir">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M7 9V3.5h10V9M7 17H4.5V9.5h15V17H17M7 14h10v6.5H7z"/></svg>
+            Imprimir o guardar en PDF
+          </button>
+          <button type="button" class="boton-secundario" id="descargar-csv">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></svg>
+            Descargar todo en CSV
+          </button>
+          <button type="button" class="boton-secundario" id="copiar-resumen">Copiar resumen sin NIT</button>
+          <button type="button" class="boton-enlace" id="nuevo-cliente">Empezar otro cliente</button>
+        </div>
+        <details class="resumen-texto" id="resumen-texto" hidden>
+          <summary>Ver el resumen sin NIT</summary>
+          <p class="nota">Trae las cifras de cada cruce, sin números de identificación ni nombres de terceros. Sirve para pedir ayuda sin compartir datos de terceros.</p>
+          <label for="texto-resumen" class="visualmente-oculto">Resumen sin NIT</label>
+          <textarea id="texto-resumen" rows="12" readonly></textarea>
+        </details>
+      </div>
+    </section>
+
+    <section class="paso como" id="como-se-calcula" aria-labelledby="titulo-como">
+      <div class="contenedor">
+        <div class="paso-titulo"><h2 id="titulo-como">Cómo se calcula</h2></div>
+        <p class="paso-entrada">Cada cruce compara una suma de la exógena con una suma de casillas de las declaraciones. La diferencia es lo declarado menos la exógena; lo que usted explica se descuenta, y el semáforo mira lo que queda sin explicar.</p>
+        <div class="como-rejilla" id="como-cruces"></div>
+        <div class="limites">
+          <h3>Revisiones de los XML</h3>
+          <p>Estructura contra los esquemas oficiales, cabecera, dígito de verificación, tipos de documento, registros repetidos, cuantías menores, GMF, base del reteIVA, IVA llevado al costo, códigos de país, departamento y municipio, conceptos y formatos que faltan.</p>
+          <h3>Lo que no hace</h3>
+          <ul>
+            <li>No corrige ni presenta nada, y no consulta la DIAN.</li>
+            <li>No da concepto tributario: muestra diferencias y causas posibles; usted decide.</li>
+            <li>No lee los PDF de las declaraciones: las cifras se escriben o se pegan.</li>
+            <li>No cruza contra lo que reportaron terceros ni contra los bancos, y no revisa consorcios.</li>
+            <li>Solo el año gravable 2025, con sus versiones de formato.</li>
+          </ul>
+          <h3>De dónde salen las reglas</h3>
+          <ul class="fuentes" id="fuentes"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie-cuerpo">
+      <p class="firma-pie">
+        <!--LOGO-->
+        <span>Hecho por Andrés Briñez · <a href="https://andresbrinez.com">andresbrinez.com</a> · <a href="mailto:contacto@andresbrinez.com">contacto@andresbrinez.com</a></span>
+      </p>
+      <p id="pie-reglas"></p>
+    </div>
+  </footer>
+
+  <script><!--SCRIPTS--></script>
+</body>
+</html>
