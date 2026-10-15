@@ -286,6 +286,8 @@ describe('revisiones internas de los XML', () => {
     const banco = Object.assign(PJ(999800011, 'BANCO'), { cpt: '5101', pago: 50000, pnded: 50000 });
     assert.equal(hallazgos(verificar([archivo('1001', [reg('1001', dian)])]), 'gmf').length, 1);
     assert.equal(hallazgos(verificar([archivo('1001', [reg('1001', banco)])]), 'gmf').length, 0);
+    // Con un cero a la izquierda sigue siendo la DIAN.
+    assert.equal(hallazgos(verificar([archivo('1001', [reg('1001', Object.assign({}, dian, { nid: '0800197268' }))])]), 'gmf').length, 1);
   });
 
   test('base del reteIVA (concepto 1309)', () => {

@@ -462,6 +462,8 @@
         const ej = ejemploDe(formato, reg);
         const tdoc = roles.tdoc ? sinCeros(a[roles.tdoc]) : null;
         const nid = roles.nid ? String(a[roles.nid] || '').trim() : null;
+        // Para comparar con los NIT especiales, sin ceros a la izquierda (0800197268 es el NIT de la DIAN).
+        const nidNorm = nid !== null ? sinCeros(nid) : null;
         const concepto = conceptoDe(formato, reg);
 
         if (tablaTipos && tdoc !== null && !Object.prototype.hasOwnProperty.call(tablaTipos, tdoc)) {
@@ -472,7 +474,7 @@
         }
         if (nid !== null && tdoc !== null) {
           const n = /^\d+$/.test(nid) ? Number(nid) : NaN;
-          const esCuantias = nid === P.nit.cuantiasMenores;
+          const esCuantias = nidNorm === P.nit.cuantiasMenores;
           const esExterior = n >= P.nit.exteriorDesde && n <= P.nit.exteriorHasta;
           if ((esCuantias || esExterior) && tdoc !== '43') {
             acum.agregar('nit-especial', formato + '|tdoc', `El NIT ${nid} se reporta con el tipo de documento 43 y aquí trae el ${tdoc}.`, ej, { formato });
@@ -511,7 +513,7 @@
         }
 
         // Cuantías menores.
-        if (nid === P.nit.cuantiasMenores) {
+        if (nidNorm === P.nit.cuantiasMenores) {
           if (regla.cuantiasMenores === 'no previstas') {
             acum.agregar('cuantias-menores-formato', formato + '|cm', `El ${formato} trae el NIT 222222222, y su artículo no prevé cuantías menores.`, ej, { formato });
           }
@@ -529,7 +531,7 @@
         // GMF a nombre de la DIAN.
         if (formato === '1001') {
           const m = marcasConcepto('1001', concepto);
-          if (m && m.gmf && nid === P.nit.dian) {
+          if (m && m.gmf && nidNorm === P.nit.dian) {
             acum.agregar('gmf', '1001|gmf', 'El GMF (concepto 5101) está a nombre de la DIAN; se reporta con el NIT del banco o entidad que lo retuvo.', ej, { formato });
           }
         }
@@ -569,7 +571,7 @@
         }
 
         // Nombre o razón social.
-        if (roles.apl1 && tdoc !== null && nid !== P.nit.cuantiasMenores) {
+        if (roles.apl1 && tdoc !== null && nidNorm !== P.nit.cuantiasMenores) {
           const tieneNombre = String(a[roles.apl1] || '').trim() && String(a[roles.nom1] || '').trim();
           const tieneRazon = roles.raz ? String(a[roles.raz] || '').trim() : '';
           if (R.TIPOS_PERSONA_NATURAL.includes(tdoc) && !tieneNombre) {
@@ -588,7 +590,7 @@
         // Conceptos que van con el NIT del informante.
         if (nitCliente && nid) {
           const m = marcasConcepto(formato, concepto);
-          if (m && m.nitInformante && nid !== nitCliente) {
+          if (m && m.nitInformante && nidNorm !== sinCeros(nitCliente)) {
             acum.agregar('nit-informante', formato + '|' + concepto, `El concepto ${concepto} se reporta con el NIT del informante (${nitCliente}).`, ej, { formato });
           }
         }
