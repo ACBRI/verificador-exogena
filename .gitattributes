@@ -5,3 +5,4 @@ ejemplos/**/*.csv -text
 *.woff2 binary
 *.png binary
 *.pdf binary
+*.zip binary

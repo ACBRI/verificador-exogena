@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Cómo usar el verificador de exógena</title>
+<style>
+/*
+ * La guía que va dentro del ZIP, en dos hojas carta. La imprime a PDF
+ * herramientas/paquete.mjs con el Chromium de Playwright.
+ *
+ * Manual de marca «Sabana y candela» (docs/01-manual-de-marca.md del sitio): la
+ * noche en la cabecera y el pie, la estructura en tierra y bruma, y la candela
+ * una sola vez por hoja. Archivo en titulares, Literata en la lectura e IBM Plex
+ * Mono en el aparato, cifras y nombres de archivo incluidos. Las tipografías son
+ * las mismas que van dentro de la página, en ../fuentes/.
+ */
+@font-face { font-family: Archivo; font-weight: 100 900; src: url("../fuentes/archivo-latin.woff2") format("woff2"); }
+@font-face { font-family: Literata; font-weight: 400 900; src: url("../fuentes/literata-latin.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-weight: 400; src: url("../fuentes/plex-mono-400-latin.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-weight: 500; src: url("../fuentes/plex-mono-500-latin.woff2") format("woff2"); }
+
+:root {
+  --cielo: #F3EFE2; --cielo-alta: #FAF8F1; --tierra: #27201B; --tierra-suave: #6E6156;
+  --noche: #1C1A2E; --noche-honda: #121120; --candela: #D4581B; --candela-tinta: #B5430F;
+  --sabana: #C39A3F; --sabana-tinta: #7A5E1F; --sabana-noche: #D9B25A; --morichal: #2F5F3A;
+  --bruma: #DED7C8; --tierra-noche: #EFE9DC; --suave-noche: #B9AE9C;
+}
+@page { size: letter; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--cielo); color: var(--tierra); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font: 400 12.5px/1.45 Literata, serif; }
+.hoja { width: 816px; height: 1056px; display: flex; flex-direction: column; overflow: hidden; background: var(--cielo); break-after: page; }
+.hoja:last-child { break-after: auto; }
+
+/* cabecera: la noche llanera con su horizonte */
+.cabecera { position: relative; height: 98px; padding: 0 52px 16px; background: var(--noche); color: var(--tierra-noche);
+  display: flex; align-items: center; justify-content: space-between; }
+.cabecera::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 16px; background: var(--noche-honda); }
+.cabecera::after { content: ""; position: absolute; left: 0; right: 0; bottom: 16px; height: 1.5px; background: var(--tierra-noche); opacity: 0.9; }
+.firma { display: flex; align-items: center; gap: 14px; }
+.firma svg { width: 44px; height: 44px; flex: none; }
+.firma b { display: block; font: 600 23px/1.05 Archivo, sans-serif; letter-spacing: -0.02em; }
+.firma span { display: block; margin-top: 6px; font: 500 10.5px Archivo, sans-serif; letter-spacing: 0.1em; color: var(--sabana-noche); }
+.sello { font: 400 10.5px/1.6 "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: var(--suave-noche); text-align: right; }
+
+/* cuerpo */
+.cuerpo { flex: 1; padding: 22px 52px 0; }
+.ceja { font: 500 11px "IBM Plex Mono", monospace; letter-spacing: 0.1em; color: var(--sabana-tinta); }
+h1 { margin-top: 6px; font: 600 32px/1.05 Archivo, sans-serif; letter-spacing: -0.02em; }
+.entrada { margin-top: 10px; font-size: 13.5px; line-height: 1.45; max-width: 660px; text-wrap: pretty; }
+.promesa { margin-top: 8px; font: 600 14.5px/1.3 Archivo, sans-serif; letter-spacing: -0.01em; color: var(--candela-tinta); }
+.seccion { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--bruma); }
+.seccion.primera { margin-top: 0; padding-top: 0; border-top: 0; }
+h2 { display: flex; align-items: baseline; gap: 10px; font: 600 17.5px/1.15 Archivo, sans-serif; letter-spacing: -0.015em; }
+h2 .folio { font: 500 12px "IBM Plex Mono", monospace; letter-spacing: 0.04em; color: var(--sabana-tinta); }
+h3 { font: 600 14px/1.2 Archivo, sans-serif; letter-spacing: -0.01em; }
+p, li { text-wrap: pretty; }
+.seccion > p { margin-top: 6px; }
+code, .mono { font-family: "IBM Plex Mono", monospace; font-size: 0.9em; }
+
+.dos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; }
+.ficha { background: var(--cielo-alta); border: 1px solid var(--bruma); border-radius: 2px; padding: 12px 14px 13px; }
+.pasos { list-style: none; counter-reset: paso; margin-top: 6px; display: grid; gap: 4px; }
+.pasos li { counter-increment: paso; display: grid; grid-template-columns: 18px 1fr; gap: 6px; }
+.pasos li::before { content: counter(paso); font: 500 12px/1.6 "IBM Plex Mono", monospace; color: var(--tierra-suave); }
+.nota { margin-top: 8px; font-size: 12px; color: var(--tierra-suave); }
+
+.lista { list-style: none; margin-top: 6px; display: grid; gap: 3px; }
+.lista.separada { margin-top: 10px; }
+.lista li { position: relative; padding-left: 16px; }
+.lista li::before { content: ""; position: absolute; left: 2px; top: 0.62em; width: 6px; height: 1.5px; background: var(--tierra-suave); }
+
+table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+th { text-align: left; font: 500 10.5px "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: var(--tierra-suave); padding: 0 10px 6px 0; border-bottom: 1px solid var(--tierra); }
+td { vertical-align: top; padding: 5px 10px 5px 0; border-bottom: 1px solid var(--bruma); }
+td.declaracion { width: 132px; font: 600 13.5px/1.3 Archivo, sans-serif; }
+td.declaracion span { display: block; font: 400 11px "IBM Plex Mono", monospace; color: var(--tierra-suave); margin-top: 2px; }
+.casilla { font: 500 12px "IBM Plex Mono", monospace; white-space: nowrap; }
+
+/* el semáforo, con los colores del informe */
+.semaforo { display: grid; grid-template-columns: 104px 1fr; gap: 5px 14px; margin-top: 8px; align-items: baseline; }
+.estado { display: inline-flex; align-items: center; gap: 6px; justify-self: start; padding: 1px 8px; border-radius: 2px;
+  font: 600 11.5px/1.6 Archivo, sans-serif; color: #FFFFFF; }
+.estado::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.estado.verde { background: var(--morichal); }
+.estado.amarillo { background: var(--sabana); color: var(--tierra); }
+.estado.rojo { background: var(--candela); }
+.estado.explicada { background: transparent; color: var(--morichal); border: 1px solid var(--morichal); padding: 0 7px; }
+
+/* pie: la noche */
+.pie { height: 40px; padding: 0 52px; margin-top: auto; background: var(--noche); color: var(--suave-noche);
+  display: flex; align-items: center; justify-content: space-between; font: 400 11px "IBM Plex Mono", monospace; letter-spacing: 0.04em; }
+.pie b { font-weight: 400; color: var(--tierra-noche); }
+</style>
+</head>
+<body>
+
+<section class="hoja">
+  <header class="cabecera">
+    <div class="firma">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Andrés Briñez">
+        <g fill="none" stroke="#EFE9DC" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 41 H36"/><path d="M9 58 L36 8"/><path d="M36 8 V58"/>
+          <path d="M36 8 H45 A11 11 0 0 1 45 30 H36"/><path d="M36 30 H47 A14 14 0 0 1 47 58 H36"/>
+        </g>
+        <circle cx="46" cy="19" r="5" fill="#F07A3B"/>
+      </svg>
+      <div><b>Andrés Briñez</b><span>ARQUITECTURA EMPRESARIAL · ODOO · IA</span></div>
+    </div>
+    <p class="sello">GUÍA DE USO<br>AÑO GRAVABLE 2025</p>
+  </header>
+
+  <div class="cuerpo">
+    <p class="ceja">VERIFICADOR DE EXÓGENA</p>
+    <h1>Cómo usar el verificador</h1>
+    <p class="entrada">Cruza la exógena del año gravable 2025 que ya presentó con la renta (110), el IVA (300) y las retenciones (350) del mismo año, y le muestra con semáforo dónde no cuadra. Es un solo archivo que se abre con doble clic y funciona sin internet.</p>
+    <p class="promesa">Sus datos no salen de su computador.</p>
+
+    <section class="seccion">
+      <h2><span class="folio">01 /</span>Abrirlo</h2>
+      <div class="dos">
+        <div class="ficha">
+          <h3>En Windows</h3>
+          <ol class="pasos">
+            <li><span>Clic derecho en <code>verificador-exogena-ag2025.zip</code> y «Extraer todo».</span></li>
+            <li><span>Doble clic en <code>verificador-exogena.html</code>: se abre en Edge, Chrome o Firefox.</span></li>
+            <li><span>Si se abre en otro programa: clic derecho, «Abrir con» y su navegador.</span></li>
+          </ol>
+        </div>
+        <div class="ficha">
+          <h3>En Mac</h3>
+          <ol class="pasos">
+            <li><span>Safari lo deja descomprimido en Descargas; con otro navegador, doble clic en el ZIP.</span></li>
+            <li><span>Doble clic en <code>verificador-exogena.html</code>: se abre en Safari, Chrome o Firefox.</span></li>
+            <li><span>Si se abre en otro programa: Control y clic, «Abrir con» y su navegador.</span></li>
+          </ol>
+        </div>
+      </div>
+      <p class="nota">No hace falta internet ni instalar nada. Guárdelo donde quiera y úselo con todos sus clientes, uno a la vez.</p>
+    </section>
+
+    <section class="seccion">
+      <h2><span class="folio">02 /</span>Los XML de la exógena</h2>
+      <p>Los del año gravable 2025, tal como los presentó: formatos <span class="casilla">1001, 1003, 1005, 1006, 1007, 1008, 1009, 1010, 1012</span> y <span class="casilla">2276</span>, los que tenga. Se arrastran a la página o se eligen con el botón.</p>
+      <ul class="lista">
+        <li>Si un formato salió en varios archivos, cárguelos todos; si hubo reemplazos, solo los vigentes.</li>
+        <li>Lo más seguro son los que generó su programa contable y usted envió (<code>Dmuisca_….xml</code>). Si no los tiene, se bajan de la DIAN, del servicio donde se consulta lo ya presentado.</li>
+      </ul>
+    </section>
+
+    <section class="seccion">
+      <h2><span class="folio">03 /</span>Las cifras de las declaraciones</h2>
+      <p>Del formulario presentado de cada declaración del año gravable 2025, en su última versión: si corrigió, la corrección. Se escribe el total del año o el detalle por periodo, o se llena la plantilla para Excel que trae el verificador y se pega.</p>
+      <table>
+        <thead><tr><th>DECLARACIÓN</th><th>CASILLAS</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="declaracion">Renta<span>FORMULARIO 110</span></td>
+            <td><span class="casilla">36</span>, <span class="casilla">37</span>, <span class="casilla">38</span> y <span class="casilla">45</span> saldos al 31 de diciembre; <span class="casilla">58</span> y <span class="casilla">59</span> ingresos brutos y devoluciones; <span class="casilla">62</span> a <span class="casilla">66</span> costos y gastos; <span class="casilla">106</span> otras retenciones; <span class="casilla">80</span> si tiene ganancias ocasionales.</td>
+          </tr>
+          <tr>
+            <td class="declaracion">IVA<span>FORMULARIO 300</span></td>
+            <td><span class="casilla">67</span> impuesto generado; <span class="casilla">81</span> descontables; <span class="casilla">85</span> si quiere cruzar las retenciones de IVA que le practicaron. Por bimestre, por cuatrimestre o el año.</td>
+          </tr>
+          <tr>
+            <td class="declaracion">Retenciones<span>FORMULARIO 350</span></td>
+            <td><span class="casilla">130</span> retenciones de renta; autorretenciones en una sola cifra (<span class="casilla">68</span> a <span class="casilla">76</span> y <span class="casilla">121</span> a <span class="casilla">128</span>); <span class="casilla">93</span> y <span class="casilla">94</span> trabajo y pensiones; <span class="casilla">134</span> retenciones de IVA; <span class="casilla">135</span> si tiene timbre. Por mes o el año.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="nota">Con los totales del año son unas veinte cifras. El detalle por periodo dice en qué declaración mirar primero.</p>
+    </section>
+  </div>
+
+  <footer class="pie"><b>contacto@andresbrinez.com</b><span>andresbrinez.com · 1 / 2</span></footer>
+</section>
+
+<section class="hoja">
+  <header class="cabecera">
+    <div class="firma">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Andrés Briñez">
+        <g fill="none" stroke="#EFE9DC" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 41 H36"/><path d="M9 58 L36 8"/><path d="M36 8 V58"/>
+          <path d="M36 8 H45 A11 11 0 0 1 45 30 H36"/><path d="M36 30 H47 A14 14 0 0 1 47 58 H36"/>
+        </g>
+        <circle cx="46" cy="19" r="5" fill="#F07A3B"/>
+      </svg>
+      <div><b>Andrés Briñez</b><span>ARQUITECTURA EMPRESARIAL · ODOO · IA</span></div>
+    </div>
+    <p class="sello">GUÍA DE USO<br>AÑO GRAVABLE 2025</p>
+  </header>
+
+  <div class="cuerpo">
+    <section class="seccion primera">
+      <h2><span class="folio">04 /</span>El informe</h2>
+      <p>Aparece solo y se rehace con cada cambio. Cada uno de los ocho cruces muestra la cifra de la exógena, la declarada y la diferencia (lo declarado menos la exógena), en pesos y en UVT.</p>
+      <div class="semaforo">
+        <span class="estado verde">Cuadra</span><p>Lo que queda sin explicar es menos de 1 UVT.</p>
+        <span class="estado amarillo">Revisar</span><p>Desde 1 UVT hasta el umbral.</p>
+        <span class="estado rojo">No cuadra</span><p>Desde el umbral: por defecto, 20 UVT de 2025 (<span class="casilla">$995.980</span>). Se cambia en la página.</p>
+        <span class="estado explicada">Explicada</span><p>Había una diferencia y usted escribió su causa con su valor; el verificador la descuenta.</p>
+      </div>
+      <ul class="lista separada">
+        <li>En cada diferencia: qué revisar, con las causas típicas de ese cruce, y los diez terceros que más pesan.</li>
+        <li>Abajo, las revisiones de los XML: estructura, dígito de verificación, tipos de documento, registros repetidos, cuantías menores y más.</li>
+        <li>«Imprimir o guardar en PDF» saca una hoja por cliente; «Descargar todo en CSV» deja el papel de trabajo; «Empezar otro cliente» deja la página en blanco.</li>
+        <li>Para verlo antes con datos de ejemplo, toque «Empresa con diferencias» o «Empresa que cuadra»: son dos empresas ficticias.</li>
+      </ul>
+    </section>
+
+    <section class="seccion">
+      <h2><span class="folio">05 /</span>Nada sale de su computador</h2>
+      <ul class="lista">
+        <li>Todo se calcula en su navegador. La página no tiene servidor, no pide cuentas ni registro y no guarda sus archivos: lo que carga existe solo mientras la pestaña esté abierta.</li>
+        <li>Su política de seguridad le prohíbe conectarse a cualquier sitio. Puede comprobarlo: desconecte el internet y úselo igual.</li>
+        <li>No usa inteligencia artificial.</li>
+        <li>Lo único que recuerda, en su propio navegador, es si eligió el modo claro o el oscuro.</li>
+        <li>«Copiar resumen sin NIT» no trae números de identificación ni nombres de terceros, pero sí las cifras de cada cruce: compártalo solo si quiere.</li>
+      </ul>
+    </section>
+
+    <section class="seccion">
+      <h2><span class="folio">06 /</span>Lo que no hace</h2>
+      <ul class="lista">
+        <li>No corrige ni presenta nada, y no consulta la DIAN.</li>
+        <li>No da concepto tributario: muestra diferencias y causas posibles, y usted decide.</li>
+        <li>No lee los PDF de las declaraciones: las cifras se escriben o se pegan.</li>
+        <li>No cruza contra lo que reportaron terceros, contra la factura electrónica ni contra los bancos, y no revisa consorcios ni contratos de colaboración.</li>
+        <li>Solo trabaja el año gravable 2025, con sus versiones de formato. No genera la exógena del año gravable 2026.</li>
+      </ul>
+    </section>
+
+    <section class="seccion">
+      <h2><span class="folio">07 /</span>Si algo no funciona</h2>
+      <ul class="lista">
+        <li>Si la página no responde, ábrala con la versión más reciente de Edge, Chrome, Firefox o Safari.</li>
+        <li>Si un XML sale con error, el informe dice el archivo, la línea y qué encontró. Y si quiere contarme qué le faltó, escríbame a contacto@andresbrinez.com.</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer class="pie"><b>contacto@andresbrinez.com</b><span>andresbrinez.com · 2 / 2</span></footer>
+</section>
+
+</body>
+</html>

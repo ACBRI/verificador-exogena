@@ -32,8 +32,9 @@ para pedir ayuda sin compartir datos de terceros.
 
 ## Cómo usarlo
 
-1. Copie `verificador-exogena.html` en su computador y ábralo con doble clic. Sirve Chrome, Edge, Firefox
-   o Safari, en Windows o en Mac, y no necesita internet ni instalar nada.
+1. Descomprima el paquete, `verificador-exogena-ag2025.zip`, y abra `verificador-exogena.html` con doble
+   clic. Sirve Chrome, Edge, Firefox o Safari, en Windows o en Mac, y no necesita internet ni instalar
+   nada. El paquete trae además la guía «Cómo usar el verificador», en PDF.
 2. **Los XML.** Arrástrelos a la página o elíjalos: los del año gravable 2025 que presentó (1001, 1003,
    1005, 1006, 1007, 1008, 1009, 1010, 1012 y 2276, los que tenga). Si un formato salió en varios
    archivos, cárguelos todos; si hubo reemplazos, solo los vigentes. Si no los tiene, se bajan de la DIAN
@@ -261,9 +262,9 @@ Lo que no se pudo confirmar o terminar, y por qué:
   Office, ContaPyme u otros). Es la primera prueba con la contadora.
 - **Los XML que se bajan de la DIAN.** No se comprobó que el servicio de consulta de lo presentado entregue
   el mismo XML que se envió.
-- **Un Windows y un Mac de verdad.** Los tres motores pasan la prueba completa, pero en Linux. Falta abrir la
-  página en un Windows con Edge y en un Mac con Safari, sin internet: doble clic, imprimir el informe y
-  descargar el CSV.
+- **Un Windows y un Mac de verdad.** Los tres motores pasan la prueba completa, pero en Linux. Falta bajar el
+  paquete en un Windows con Edge y en un Mac con Safari y, sin internet, descomprimirlo, abrir la página
+  con doble clic, imprimir el informe y descargar el CSV.
 - **El tiempo por cliente.** El objetivo es el primer resultado en menos de 15 minutos; falta medirlo con
   un contador que no lo conozca.
 - **Qué hace la DIAN con un reemplazo.** No se confirmó si un archivo de reemplazo sustituye todo lo enviado
@@ -289,7 +290,9 @@ Lo que no se pudo confirmar o terminar, y por qué:
 | `src/reglas-ag2025.js`, `src/esquemas-ag2025.js`, `src/tablas-ag2025.js` | Las reglas del AG 2025 como datos |
 | `norma/` | Los XSD y las tablas oficiales del prevalidador |
 | `fuentes/` | Tipografías, logotipo y favicon que van dentro de la página |
-| `herramientas/` | El que arma la página, el que genera los datos oficiales y el que genera los ejemplos |
+| `guia/como-usar-el-verificador.html` | La guía de dos hojas que va en el paquete, con la marca de Andrés |
+| `paquete/` | El paquete de descarga: `verificador-exogena-ag2025.zip`, con la página y la guía en PDF, y las huellas con que se revisa que estén al día |
+| `herramientas/` | El que arma la página, el que genera los datos oficiales, el que genera los ejemplos y el que arma el paquete |
 | `ejemplos/` | Las dos empresas ficticias: XML, plantilla llena y explicaciones |
 | `pruebas/` | Las pruebas |
 
@@ -302,7 +305,8 @@ npm test
 
 Cubren el lector de XML, los datos oficiales al día con `norma/`, las reglas contra los esquemas y las
 tablas del prevalidador, cada cruce, cada revisión, las salidas, las dos empresas de ejemplo, la página
-armada (al día, sin recursos de otro sitio y con su política de seguridad).
+armada (al día, sin recursos de otro sitio y con su política de seguridad) y el paquete (la página y la
+guía al día, la guía de una o dos hojas carta y con todas las casillas que se piden).
 
 La prueba de punta a punta abre la página en Chromium, Firefox y WebKit sin ventana, con doble clic y sin
 internet, en escritorio, teléfono y modo oscuro; comprueba que el informe impreso cabe en una hoja y deja
@@ -316,6 +320,10 @@ npm run punta -- firefox webkit   # solo esos
 ```
 
 En Linux, WebKit pide además unas bibliotecas del sistema: `sudo npx playwright-core install-deps webkit`.
+
+El paquete se arma con `npm run paquete`, después de `npm run construir`: imprime la guía con Chromium solo
+si cambió (se detiene si una tipografía no carga o si el texto no cabe en sus dos hojas) y arma el ZIP con
+la página tal como está.
 
 Cada envío a GitHub corre las dos pruebas, la de punta a punta en los tres motores, en máquinas de GitHub
 (`.github/workflows/pruebas.yml`).

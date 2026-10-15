@@ -14,7 +14,8 @@
     "datos": "node herramientas/datos-oficiales.js",
     "ejemplos": "node herramientas/generar-ejemplos.js",
     "construir": "node herramientas/construir.js",
-    "punta": "node pruebas/punta-a-punta.mjs"
+    "punta": "node pruebas/punta-a-punta.mjs",
+    "paquete": "node herramientas/armar-paquete.mjs"
   },
   "devDependencies": {
     "playwright-core": "1.61.1"
