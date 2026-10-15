@@ -89,6 +89,9 @@
   const RE_NOMBRE = /[\p{L}_:][\p{L}\p{N}._:\-·]*/uy;
   const RE_ESPACIO = /[ \t\r\n]*/y;
   const ENTIDADES = { lt: '<', gt: '>', amp: '&', quot: '"', apos: "'" };
+  // Se arma por partes para que la apertura de un comentario HTML no aparezca
+  // tal cual dentro del <script> de la página.
+  const ABRE_COMENTARIO = '<' + '!--';
 
   function caracterValido(cp) {
     return cp === 0x9 || cp === 0xA || cp === 0xD ||
@@ -159,7 +162,7 @@
     }
     function saltarComentario() {
       const fin = s.indexOf('-->', i + 4);
-      if (fin === -1) fallar('Un comentario «<!--» no se cierra.');
+      if (fin === -1) fallar(`Un comentario «${ABRE_COMENTARIO}» no se cierra.`);
       if (s.slice(i + 4, fin).includes('--')) fallar('Un comentario no puede llevar «--» por dentro.');
       i = fin + 3;
     }
@@ -181,7 +184,7 @@
     }
     for (;;) {
       espacios();
-      if (s.startsWith('<!--', i)) saltarComentario();
+      if (s.startsWith(ABRE_COMENTARIO, i)) saltarComentario();
       else if (s.startsWith('<?', i)) saltarInstruccion();
       else if (s.startsWith('<!DOCTYPE', i)) fallar('El archivo trae una declaración DOCTYPE. Los XML de la exógena no la usan, y el verificador no la procesa.');
       else break;
@@ -200,7 +203,7 @@
         break;
       }
       if (s[i] === '<') {
-        if (s.startsWith('<!--', i)) { saltarComentario(); continue; }
+        if (s.startsWith(ABRE_COMENTARIO, i)) { saltarComentario(); continue; }
         if (s.startsWith('<?', i)) { saltarInstruccion(); continue; }
         if (s.startsWith('<![CDATA[', i)) {
           if (!pila.length) fallar('Hay una sección CDATA fuera del elemento raíz.');
@@ -226,7 +229,7 @@
             // Después de la raíz solo pueden venir comentarios, instrucciones y espacios.
             for (;;) {
               espacios();
-              if (s.startsWith('<!--', i)) saltarComentario();
+              if (s.startsWith(ABRE_COMENTARIO, i)) saltarComentario();
               else if (s.startsWith('<?', i)) saltarInstruccion();
               else break;
             }
@@ -272,7 +275,7 @@
           if (!pila.length) {
             for (;;) {
               espacios();
-              if (s.startsWith('<!--', i)) saltarComentario();
+              if (s.startsWith(ABRE_COMENTARIO, i)) saltarComentario();
               else if (s.startsWith('<?', i)) saltarInstruccion();
               else break;
             }

@@ -50,6 +50,12 @@
     return /^\d+$/.test(s) ? String(Number(s)) : s;
   }
 
+  /** 1234567 -> '1.234.567', como se escriben las cifras en Colombia. */
+  function miles(n) {
+    const s = Math.abs(Math.round(n)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return (n < 0 ? '-' : '') + s;
+  }
+
   function numero(v) {
     if (v === undefined || v === null || v === '') return 0;
     const n = Number(String(v).trim());
@@ -329,17 +335,17 @@
     const n = archivo.registros.length;
     if (n === 0) acum.agregar('cantidad-registros', 'cero', 'El archivo no trae registros: el esquema pide al menos uno.');
     if (cab.CantReg !== undefined && /^\s*\d+\s*$/.test(cab.CantReg) && Number(cab.CantReg) !== n) {
-      acum.agregar('cantidad-registros', 'cantreg', `<CantReg> dice ${Number(cab.CantReg)} y el archivo trae ${n} registros.`, { linea: cabEl.linea });
+      acum.agregar('cantidad-registros', 'cantreg', `<CantReg> dice ${miles(Number(cab.CantReg))} y el archivo trae ${miles(n)} registros.`, { linea: cabEl.linea });
     }
     const maximo = esquema.maxRegistros || R.PARAMETROS.maxRegistrosPorArchivo.valor;
-    if (n > R.PARAMETROS.maxRegistrosPorArchivo.valor || n > maximo) acum.agregar('cantidad-registros', 'maximo', `El archivo trae ${n} registros; el máximo por archivo es ${Math.min(maximo, R.PARAMETROS.maxRegistrosPorArchivo.valor)}.`);
+    if (n > R.PARAMETROS.maxRegistrosPorArchivo.valor || n > maximo) acum.agregar('cantidad-registros', 'maximo', `El archivo trae ${miles(n)} registros; el máximo por archivo es ${miles(Math.min(maximo, R.PARAMETROS.maxRegistrosPorArchivo.valor))}.`);
 
     // ValorTotal: la suma del atributo que dice la especificación.
     if (cab.ValorTotal !== undefined && regla.sumaValorTotal) {
       const suma = archivo.registros.reduce((s, r) => s + numero(r.atr[regla.sumaValorTotal]), 0);
       const total = Number(String(cab.ValorTotal).trim());
       if (Number.isFinite(total) && Math.abs(total - suma) > 0.5) {
-        acum.agregar('valor-total', 'vt', `<ValorTotal> dice ${String(cab.ValorTotal).trim()} y la suma del atributo «${regla.sumaValorTotal}» de los registros da ${suma}. La especificación pide que coincidan.`, { linea: cabEl.linea });
+        acum.agregar('valor-total', 'vt', `<ValorTotal> dice ${String(cab.ValorTotal).trim()} y la suma del atributo «${regla.sumaValorTotal}» de los registros da ${suma}. La especificación pide que coincidan (es una suma de control, aunque el atributo sea un código).`, { linea: cabEl.linea });
       }
     }
 
@@ -594,7 +600,7 @@
       const en1001 = porFormato['1001'].registros.reduce((s, r) => s + numero(r.atr.ided) + numero(r.atr.inded), 0);
       const en1005 = porFormato['1005'].registros.reduce((s, r) => s + numero(r.atr.ivavcg), 0);
       if (Math.abs(en1001 - en1005) >= R.PARAMETROS.verdeUVT * uvt) {
-        acum.agregar('iva-costo', 'iva', `El IVA llevado al costo suma ${en1001} en el 1001 (deducible y no deducible) y ${en1005} en el 1005. En el AG 2025 es el mismo valor reportado en los dos formatos.`, null, { formato: '1001 y 1005', en1001, en1005 });
+        acum.agregar('iva-costo', 'iva', `El IVA llevado al costo suma ${cop(en1001)} en el 1001 (deducible y no deducible) y ${cop(en1005)} en el 1005. En el AG 2025 es el mismo valor reportado en los dos formatos.`, null, { formato: '1001 y 1005', en1001, en1005 });
       }
     }
     return acum.lista();
@@ -879,8 +885,7 @@
 
   function cop(n) {
     if (n === null || n === undefined) return 'sin dato';
-    const s = Math.abs(Math.round(n)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-    return (n < 0 ? '-' : '') + '$' + s;
+    return (n < 0 ? '-' : '') + '$' + miles(Math.abs(n));
   }
 
   /** Un resumen sin NIT ni nombres de terceros, para pedir ayuda. */

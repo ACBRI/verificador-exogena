@@ -159,7 +159,7 @@ describe('lectura de un archivo', () => {
     assert.ok(hallazgosArchivo(a, 'cantidad-registros').some((h) => /dice 2 y el archivo trae 1/.test(h.mensaje)));
     const muchos = Array.from({ length: 5001 }, (_, k) => reg('1007', { tdoc: '13', nid: String(1990000000 + k), dv: undefined, raz: undefined, apl1: 'A', nom1: 'B', ibru: 1 }));
     const b = archivo('1007', muchos);
-    assert.ok(hallazgosArchivo(b, 'cantidad-registros').some((h) => /máximo por archivo es 5000/.test(h.mensaje)));
+    assert.ok(hallazgosArchivo(b, 'cantidad-registros').some((h) => /máximo por archivo es 5\.000/.test(h.mensaje)));
   });
 
   test('valor total de la cabecera', () => {
