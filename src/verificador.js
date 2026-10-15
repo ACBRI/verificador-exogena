@@ -340,7 +340,11 @@
     const maximo = esquema.maxRegistros || R.PARAMETROS.maxRegistrosPorArchivo.valor;
     if (n > R.PARAMETROS.maxRegistrosPorArchivo.valor || n > maximo) acum.agregar('cantidad-registros', 'maximo', `El archivo trae ${miles(n)} registros; el máximo por archivo es ${miles(Math.min(maximo, R.PARAMETROS.maxRegistrosPorArchivo.valor))}.`);
 
-    // ValorTotal: la suma del atributo que dice la especificación.
+    // ValorTotal: la suma del atributo que dice la especificación (en varios
+    // formatos es un código, como el concepto o el tipo de documento: así lo
+    // definen los anexos y la hoja DefinicionFormatos del prevalidador).
+    // PENDIENTE: no se sabe si la DIAN rechaza un archivo con un ValorTotal
+    // distinto; por eso es advertencia y no error.
     if (cab.ValorTotal !== undefined && regla.sumaValorTotal) {
       const suma = archivo.registros.reduce((s, r) => s + numero(r.atr[regla.sumaValorTotal]), 0);
       const total = Number(String(cab.ValorTotal).trim());
@@ -377,6 +381,10 @@
   /**
    * Junta los archivos leídos por formato. Ignora el mismo archivo cargado dos
    * veces y avisa si hay envíos repetidos o inserciones mezcladas con reemplazos.
+   *
+   * PENDIENTE: no se confirmó en la norma si un archivo de reemplazo (CodCpt 2)
+   * sustituye todo lo enviado del formato o solo un envío. Por eso se suma todo
+   * lo cargado y se pide cargar solo los archivos vigentes.
    */
   function consolidar(archivos) {
     const porFormato = {};

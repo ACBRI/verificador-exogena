@@ -1,7 +1,8 @@
 name: Pruebas
 
 # Corre en máquinas de GitHub (Ubuntu 24.04, fijo para que el cambio de
-# ubuntu-latest no lo rompa sin aviso), nunca en los equipos propios del Mac mini. Las mismas pruebas se corren en local con `npm test` y `npm run punta`.
+# ubuntu-latest no lo rompa sin aviso), nunca en los equipos propios del Mac
+# mini. Las mismas pruebas se corren en local con `npm test` y `npm run punta`.
 
 on:
   push:

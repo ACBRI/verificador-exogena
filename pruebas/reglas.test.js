@@ -132,6 +132,12 @@ describe('revisiones y normas', () => {
     assert.deepEqual([...usadas].sort(), Object.keys(R.REVISIONES).sort());
   });
 
+  test('cada revisión y cada línea de cruce tiene su prueba', () => {
+    const pruebas = fs.readFileSync(path.join(__dirname, 'verificador.test.js'), 'utf8');
+    for (const k of Object.keys(R.REVISIONES)) assert.ok(pruebas.includes(`'${k}'`), `la revisión ${k} no tiene prueba`);
+    for (const c of R.CRUCES) for (const l of c.lineas) assert.ok(pruebas.includes(`'${l.id}'`), `la línea ${l.id} no tiene prueba`);
+  });
+
   test('las normas tienen nombre, qué dicen y URL', () => {
     for (const [k, n] of Object.entries(R.NORMAS)) {
       assert.ok(n.nombre && n.que, k);
