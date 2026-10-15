@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas>
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1008</Formato>
+    <Version>7</Version>
+    <NumEnvio>6</NumEnvio>
+    <FecEnvio>2026-05-20T10:16:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>55117127</ValorTotal>
+    <CantReg>10</CantReg>
+  </Cab>
+  <saldoscc cpt="1315" tdoc="31" nid="999230019" dv="0" raz="CLIENTE VALLE 01 DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" sal="10066070"/>
+  <saldoscc cpt="1315" tdoc="31" nid="999230057" dv="0" raz="CLIENTE VALLE 03 DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mun="001" pais="169" sal="6263294"/>
+  <saldoscc cpt="1315" tdoc="31" nid="999230095" dv="0" raz="CLIENTE VALLE 05 DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" sal="6650436"/>
+  <saldoscc cpt="1315" tdoc="31" nid="999230133" dv="2" raz="CLIENTE VALLE 07 DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" sal="6206742"/>
+  <saldoscc cpt="1315" tdoc="31" nid="999230171" dv="2" raz="CLIENTE VALLE 09 DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mun="001" pais="169" sal="8473920"/>
+  <saldoscc cpt="1315" tdoc="31" nid="999230209" dv="3" raz="CLIENTE VALLE 11 DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" sal="5712605"/>
+  <saldoscc cpt="1315" tdoc="13" nid="1990003299" apl1="CLIENTE" apl2="ARIAS" nom1="ELENA" dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" sal="6394060"/>
+  <saldoscc cpt="1317" tdoc="13" nid="1990002085" apl1="MODELO" apl2="DÍAZ" nom1="LAURA" dir="CR 27 36 14" dpto="68" mun="001" pais="169" sal="2400000"/>
+  <saldoscc cpt="1318" tdoc="31" nid="999230057" dv="0" raz="CLIENTE VALLE 03 DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mun="001" pais="169" sal="1150000"/>
+  <saldoscc cpt="1317" tdoc="33" nid="999230076" raz="CLIENTE VALLE 04 DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mun="001" pais="169" sal="1800000"/>
+</mas>

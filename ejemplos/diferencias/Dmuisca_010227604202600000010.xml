@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas>
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>2276</Formato>
+    <Version>4</Version>
+    <NumEnvio>10</NumEnvio>
+    <FecEnvio>2026-05-14T10:20:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>65</ValorTotal>
+    <CantReg>5</CantReg>
+  </Cab>
+  <rentra entinfo="1" tdocb="13" nitb="1990002085" pap="MODELO" sap="DÍAZ" pno="LAURA" dir="CR 27 36 14" dpto="68" mun="001" pais="169" pasa="57600000" paec="0" pabop="0" vaex="0" paho="0" pase="0" paco="0" papre="10368000" pavia="0" paga="0" patra="0" vapo="0" potro="0" cein="5373850" ceco="0" auce="0" peju="0" tingbtp="73341850" apos="2304000" apof="2304000" aprais="0" apov="0" apafc="0" apavc="0" vare="3456000" ivav="0" rfiva="0" pagahuvt="0" vilap="0"/>
+  <rentra entinfo="1" tdocb="13" nitb="1990002102" pap="SIMULADO" sap="ROJAS" pno="PEDRO" ono="NEL" dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pasa="42240000" paec="0" pabop="0" vaex="0" paho="0" pase="0" paco="0" papre="7603200" pavia="0" paga="0" patra="0" vapo="0" potro="0" cein="3940823" ceco="0" auce="0" peju="0" tingbtp="53784023" apos="1689600" apof="1689600" aprais="0" apov="0" apafc="0" apavc="0" vare="633600" ivav="0" rfiva="0" pagahuvt="0" vilap="0"/>
+  <rentra entinfo="1" tdocb="13" nitb="1990002119" pap="DEMOSTRACIÓN" sap="LÓPEZ" pno="SOFÍA" dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" pasa="34560000" paec="0" pabop="0" vaex="0" paho="0" pase="0" paco="0" papre="6220800" pavia="0" paga="0" patra="0" vapo="0" potro="0" cein="3224310" ceco="0" auce="0" peju="0" tingbtp="44005110" apos="1382400" apof="1382400" aprais="0" apov="0" apafc="0" apavc="0" vare="0" ivav="0" rfiva="0" pagahuvt="0" vilap="0"/>
+  <rentra entinfo="1" tdocb="13" nitb="1990002136" pap="EJEMPLAR" sap="MORA" pno="DIEGO" ono="ALEJANDRO" dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pasa="30720000" paec="0" pabop="0" vaex="0" paho="0" pase="0" paco="0" papre="5529600" pavia="0" paga="0" patra="0" vapo="0" potro="0" cein="2866053" ceco="0" auce="0" peju="0" tingbtp="39115653" apos="1228800" apof="1228800" aprais="0" apov="0" apafc="0" apavc="0" vare="0" ivav="0" rfiva="0" pagahuvt="0" vilap="0"/>
+  <rentra entinfo="1" tdocb="13" nitb="1990002153" pap="CASO" sap="NÚÑEZ" pno="VALENTINA" dir="CL 72 54 31 BG 3" dpto="08" mun="001" pais="169" pasa="26880000" paec="0" pabop="0" vaex="0" paho="0" pase="0" paco="0" papre="4838400" pavia="0" paga="0" patra="0" vapo="0" potro="0" cein="2507796" ceco="0" auce="0" peju="0" tingbtp="34226196" apos="1075200" apof="1075200" aprais="0" apov="0" apafc="0" apavc="0" vare="0" ivav="0" rfiva="0" pagahuvt="0" vilap="0"/>
+</mas>

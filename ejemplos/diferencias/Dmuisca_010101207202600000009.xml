@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas>
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1012</Formato>
+    <Version>7</Version>
+    <NumEnvio>9</NumEnvio>
+    <FecEnvio>2026-05-23T10:19:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>66939031</ValorTotal>
+    <CantReg>3</CantReg>
+  </Cab>
+  <dectri cpt="1110" tdoc="31" nid="999800023" dv="7" raz="BANCO DE EJEMPLO S.A." pais="169" val="39223477"/>
+  <dectri cpt="1110" tdoc="31" nid="999800049" dv="8" raz="BANCO AGRARIO DE EJEMPLO S.A." pais="169" val="7715554"/>
+  <dectri cpt="1201" tdoc="31" nid="999800023" dv="7" raz="BANCO DE EJEMPLO S.A." pais="169" val="20000000"/>
+</mas>

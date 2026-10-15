@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas>
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1006</Formato>
+    <Version>8</Version>
+    <NumEnvio>4</NumEnvio>
+    <FecEnvio>2026-05-18T10:14:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>472</ValorTotal>
+    <CantReg>15</CantReg>
+  </Cab>
+  <impoventas tdoc="31" nid="999230019" dv="0" raz="CLIENTE VALLE 01 DE EJEMPLO S.A.S." imp="15619186" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999230038" dv="0" raz="CLIENTE VALLE 02 DE EJEMPLO S.A.S." imp="14424122" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999230057" dv="0" raz="CLIENTE VALLE 03 DE EJEMPLO S.A.S." imp="9916883" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999230076" dv="0" raz="CLIENTE VALLE 04 DE EJEMPLO S.A.S." imp="8508032" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999230095" dv="0" raz="CLIENTE VALLE 05 DE EJEMPLO S.A.S." imp="10529857" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999230114" dv="2" raz="CLIENTE VALLE 06 DE EJEMPLO S.A.S." imp="10307436" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999230133" dv="2" raz="CLIENTE VALLE 07 DE EJEMPLO S.A.S." imp="9827341" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999230152" dv="2" raz="CLIENTE VALLE 08 DE EJEMPLO S.A.S." imp="17445444" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999230171" dv="2" raz="CLIENTE VALLE 09 DE EJEMPLO S.A.S." imp="13417040" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999230190" dv="2" raz="CLIENTE VALLE 10 DE EJEMPLO S.A.S." imp="15214926" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999230209" dv="3" raz="CLIENTE VALLE 11 DE EJEMPLO S.A.S." imp="8864059" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999230228" dv="3" raz="CLIENTE VALLE 12 DE EJEMPLO S.A.S." imp="16812037" iva="0" icon="0"/>
+  <impoventas tdoc="13" nid="1990003299" apl1="CLIENTE" apl2="ARIAS" nom1="ELENA" imp="10123928" iva="0" icon="0"/>
+  <impoventas tdoc="13" nid="1990003322" apl1="COMPRADOR" apl2="VEGA" nom1="MATEO" imp="10211805" iva="0" icon="0"/>
+  <impoventas tdoc="43" nid="222222222" raz="CUANTÍAS MENORES" imp="2118889" iva="0" icon="0"/>
+</mas>

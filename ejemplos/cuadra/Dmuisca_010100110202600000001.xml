@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="1001.xsd">
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1001</Formato>
+    <Version>10</Version>
+    <NumEnvio>1</NumEnvio>
+    <FecEnvio>2026-05-15T10:11:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>100198</ValorTotal>
+    <CantReg>20</CantReg>
+  </Cab>
+  <pagos cpt="5007" tdoc="31" nid="999110011" raz="PROVEEDOR ANDINA UNO DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="70173567" pnded="0" ided="0" inded="0" retp="1754339" reta="0" comun="1999947" ndom="0"/>
+  <pagos cpt="5007" tdoc="31" nid="999110022" raz="PROVEEDOR ANDINA DOS DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" pago="85346279" pnded="0" ided="0" inded="0" retp="2133657" reta="0" comun="2432369" ndom="0"/>
+  <pagos cpt="5007" tdoc="31" nid="999110033" raz="PROVEEDOR ANDINA TRES DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="123775822" pnded="0" ided="0" inded="0" retp="3094396" reta="0" comun="3527611" ndom="0"/>
+  <pagos cpt="5007" tdoc="31" nid="999110044" raz="PROVEEDOR ANDINA CUATRO DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mun="001" pais="169" pago="98797117" pnded="0" ided="0" inded="0" retp="2469928" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5007" tdoc="31" nid="999110055" raz="PROVEEDOR ANDINA CINCO DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mun="001" pais="169" pago="139047562" pnded="0" ided="0" inded="0" retp="3476189" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5007" tdoc="31" nid="999110066" raz="PROVEEDOR ANDINA SEIS DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="91474527" pnded="0" ided="0" inded="0" retp="2286863" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5007" tdoc="31" nid="999110077" raz="PROVEEDOR ANDINA SIETE DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" pago="144684436" pnded="0" ided="0" inded="0" retp="3617111" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5007" tdoc="31" nid="999110088" raz="PROVEEDOR ANDINA OCHO DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="128378121" pnded="0" ided="0" inded="0" retp="3209453" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5004" tdoc="31" nid="999120013" raz="SERVICIOS LOGÍSTICOS ANDINA DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="8146521" pnded="0" ided="0" inded="0" retp="325861" reta="0" comun="232176" ndom="0"/>
+  <pagos cpt="5004" tdoc="31" nid="999120026" raz="SERVICIOS DE ASEO ANDINA DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mun="001" pais="169" pago="8631156" pnded="0" ided="0" inded="0" retp="345246" reta="0" comun="245988" ndom="0"/>
+  <pagos cpt="5004" tdoc="31" nid="999120039" raz="SERVICIOS DE VIGILANCIA ANDINA DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mun="001" pais="169" pago="22268227" pnded="0" ided="0" inded="0" retp="890729" reta="0" comun="634644" ndom="0"/>
+  <pagos cpt="5004" tdoc="31" nid="999120052" raz="SERVICIOS DE SISTEMAS ANDINA DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="20179804" pnded="0" ided="0" inded="0" retp="807192" reta="0" comun="575124" ndom="0"/>
+  <pagos cpt="5004" tdoc="31" nid="999120065" raz="SERVICIOS DE TRANSPORTE ANDINA DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" pago="8167563" pnded="0" ided="0" inded="0" retp="326703" reta="0" comun="232776" ndom="0"/>
+  <pagos cpt="5004" tdoc="31" nid="999120078" raz="SERVICIOS DE PUBLICIDAD ANDINA DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="10103415" pnded="0" ided="0" inded="0" retp="404137" reta="0" comun="287947" ndom="0"/>
+  <pagos cpt="5002" tdoc="13" nid="1990001017" apl1="EJEMPLO" apl2="TORRES" nom1="ANA" nom2="LUCÍA" dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="13887870" pnded="0" ided="0" inded="0" retp="1388787" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5002" tdoc="13" nid="1990001034" apl1="MUESTRA" apl2="PEÑA" nom1="CARLOS" nom2="ANDRÉS" dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" pago="33005577" pnded="0" ided="0" inded="0" retp="3300558" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5002" tdoc="13" nid="1990001051" apl1="PRUEBA" apl2="GÓMEZ" nom1="MARÍA" nom2="JOSÉ" dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="21284161" pnded="0" ided="0" inded="0" retp="2128416" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5005" tdoc="13" nid="1990001068" apl1="FICTICIO" apl2="RUIZ" nom1="JUAN" nom2="PABLO" dir="CL 72 54 31 BG 3" dpto="08" mun="001" pais="169" pago="78000000" pnded="0" ided="0" inded="0" retp="2730000" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5006" tdoc="31" nid="999800011" raz="BANCO DE EJEMPLO S.A." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="9890308" pnded="0" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5101" tdoc="31" nid="999800011" raz="BANCO DE EJEMPLO S.A." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="1811496" pnded="1811496" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+</mas>

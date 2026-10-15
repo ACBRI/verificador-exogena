@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas>
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1005</Formato>
+    <Version>8</Version>
+    <NumEnvio>3</NumEnvio>
+    <FecEnvio>2026-05-17T10:13:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>476</ValorTotal>
+    <CantReg>15</CantReg>
+  </Cab>
+  <impventas tdoc="31" nid="999210011" dv="7" raz="PROVEEDOR VALLE UNO DE EJEMPLO S.A.S." vimp="3852932" ivade="0"/>
+  <impventas tdoc="31" nid="999210022" dv="8" raz="PROVEEDOR VALLE DOS DE EJEMPLO S.A.S." vimp="4038243" ivade="0"/>
+  <impventas tdoc="31" nid="999210033" dv="9" raz="PROVEEDOR VALLE TRES DE EJEMPLO S.A.S." vimp="7763863" ivade="0"/>
+  <impventas tdoc="31" nid="999210044" dv="1" raz="PROVEEDOR VALLE CUATRO DE EJEMPLO S.A.S." vimp="4888683" ivade="0"/>
+  <impventas tdoc="31" nid="999210055" dv="0" raz="PROVEEDOR VALLE CINCO DE EJEMPLO S.A.S." vimp="8510311" ivade="0"/>
+  <impventas tdoc="31" nid="999210066" dv="1" raz="PROVEEDOR VALLE SEIS DE EJEMPLO S.A.S." vimp="6059779" ivade="0"/>
+  <impventas tdoc="31" nid="999210077" dv="2" raz="PROVEEDOR VALLE SIETE DE EJEMPLO S.A.S." vimp="4829040" ivade="0"/>
+  <impventas tdoc="31" nid="999210088" dv="3" raz="PROVEEDOR VALLE OCHO DE EJEMPLO S.A.S." vimp="6773300" ivade="0"/>
+  <impventas tdoc="31" nid="999220013" dv="4" raz="SERVICIOS LOGÍSTICOS VALLE DE EJEMPLO S.A.S." vimp="3000000" ivade="0"/>
+  <impventas tdoc="31" nid="999220026" dv="1" raz="SERVICIOS DE ASEO VALLE DE EJEMPLO S.A.S." vimp="3601410" ivade="0"/>
+  <impventas tdoc="31" nid="999220039" dv="5" raz="SERVICIOS DE VIGILANCIA VALLE DE EJEMPLO S.A.S." vimp="5579785" ivade="0"/>
+  <impventas tdoc="31" nid="999220052" dv="1" raz="SERVICIOS DE SISTEMAS VALLE DE EJEMPLO S.A.S." vimp="11875000" ivade="0"/>
+  <impventas tdoc="31" nid="999220065" dv="7" raz="SERVICIOS DE TRANSPORTE VALLE DE EJEMPLO S.A.S." vimp="2334390" ivade="0"/>
+  <impventas tdoc="31" nid="999220078" dv="2" raz="SERVICIOS DE PUBLICIDAD VALLE DE EJEMPLO S.A.S." vimp="5151648" ivade="0"/>
+  <impventas tdoc="42" nid="US8829104" raz="EXAMPLE CLOUD SOFTWARE INC" vimp="1368000" ivade="0"/>
+</mas>

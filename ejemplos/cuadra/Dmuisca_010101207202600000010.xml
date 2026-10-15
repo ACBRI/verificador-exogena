@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="1012.xsd">
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1012</Formato>
+    <Version>7</Version>
+    <NumEnvio>10</NumEnvio>
+    <FecEnvio>2026-05-14T10:20:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>134184138</ValorTotal>
+    <CantReg>3</CantReg>
+  </Cab>
+  <dectri cpt="1110" tdoc="31" nid="999800011" dv="9" raz="BANCO DE EJEMPLO S.A." pais="169" val="75613375"/>
+  <dectri cpt="1110" tdoc="31" nid="999800037" dv="1" raz="BANCO AGRARIO DE EJEMPLO S.A." pais="169" val="8570763"/>
+  <dectri cpt="1201" tdoc="31" nid="999800011" dv="9" raz="BANCO DE EJEMPLO S.A." pais="169" val="50000000"/>
+</mas>

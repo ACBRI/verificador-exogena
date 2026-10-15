@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="1001.xsd">
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1001</Formato>
+    <Version>10</Version>
+    <NumEnvio>2</NumEnvio>
+    <FecEnvio>2026-05-16T10:12:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>35156</ValorTotal>
+    <CantReg>7</CantReg>
+  </Cab>
+  <pagos cpt="5011" tdoc="31" nid="999810013" raz="EPS SALUD DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="21420000" pnded="10080000" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5011" tdoc="31" nid="999810021" raz="ARL POSITIVA DE EJEMPLO S.A." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="1315440" pnded="0" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5012" tdoc="31" nid="999810039" raz="FONDO DE PENSIONES DE EJEMPLO S.A." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="30240000" pnded="10080000" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5010" tdoc="31" nid="999810047" raz="CAJA DE COMPENSACIÓN DE EJEMPLO" dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="10080000" pnded="0" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5015" tdoc="31" nid="999700014" raz="DISTRITO DE EJEMPLO" dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="6911918" pnded="0" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5081" tdoc="42" nid="US8829104" raz="EXAMPLE CLOUD SOFTWARE INC" pais="249" pago="7200000" pnded="0" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="1368000"/>
+  <pagos cpt="5016" tdoc="43" nid="222222222" raz="CUANTÍAS MENORES" dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="2836929" pnded="0" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+</mas>

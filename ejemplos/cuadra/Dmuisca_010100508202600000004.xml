@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="1005.xsd">
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1005</Formato>
+    <Version>8</Version>
+    <NumEnvio>4</NumEnvio>
+    <FecEnvio>2026-05-18T10:14:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>476</ValorTotal>
+    <CantReg>15</CantReg>
+  </Cab>
+  <impventas tdoc="31" nid="999110011" dv="8" raz="PROVEEDOR ANDINA UNO DE EJEMPLO S.A.S." vimp="13332978" ivade="0"/>
+  <impventas tdoc="31" nid="999110022" dv="9" raz="PROVEEDOR ANDINA DOS DE EJEMPLO S.A.S." vimp="16215793" ivade="0"/>
+  <impventas tdoc="31" nid="999110033" dv="1" raz="PROVEEDOR ANDINA TRES DE EJEMPLO S.A.S." vimp="23517406" ivade="0"/>
+  <impventas tdoc="31" nid="999110044" dv="0" raz="PROVEEDOR ANDINA CUATRO DE EJEMPLO S.A.S." vimp="18771452" ivade="0"/>
+  <impventas tdoc="31" nid="999110055" dv="1" raz="PROVEEDOR ANDINA CINCO DE EJEMPLO S.A.S." vimp="26419037" ivade="0"/>
+  <impventas tdoc="31" nid="999110066" dv="2" raz="PROVEEDOR ANDINA SEIS DE EJEMPLO S.A.S." vimp="17380160" ivade="0"/>
+  <impventas tdoc="31" nid="999110077" dv="3" raz="PROVEEDOR ANDINA SIETE DE EJEMPLO S.A.S." vimp="27490043" ivade="0"/>
+  <impventas tdoc="31" nid="999110088" dv="4" raz="PROVEEDOR ANDINA OCHO DE EJEMPLO S.A.S." vimp="24391843" ivade="0"/>
+  <impventas tdoc="31" nid="999120013" dv="5" raz="SERVICIOS LOGÍSTICOS ANDINA DE EJEMPLO S.A.S." vimp="1547839" ivade="0"/>
+  <impventas tdoc="31" nid="999120026" dv="0" raz="SERVICIOS DE ASEO ANDINA DE EJEMPLO S.A.S." vimp="1639920" ivade="0"/>
+  <impventas tdoc="31" nid="999120039" dv="6" raz="SERVICIOS DE VIGILANCIA ANDINA DE EJEMPLO S.A.S." vimp="4230963" ivade="0"/>
+  <impventas tdoc="31" nid="999120052" dv="2" raz="SERVICIOS DE SISTEMAS ANDINA DE EJEMPLO S.A.S." vimp="3834163" ivade="0"/>
+  <impventas tdoc="31" nid="999120065" dv="8" raz="SERVICIOS DE TRANSPORTE ANDINA DE EJEMPLO S.A.S." vimp="1551837" ivade="0"/>
+  <impventas tdoc="31" nid="999120078" dv="3" raz="SERVICIOS DE PUBLICIDAD ANDINA DE EJEMPLO S.A.S." vimp="1919649" ivade="0"/>
+  <impventas tdoc="42" nid="US8829104" raz="EXAMPLE CLOUD SOFTWARE INC" vimp="1368000" ivade="0"/>
+</mas>

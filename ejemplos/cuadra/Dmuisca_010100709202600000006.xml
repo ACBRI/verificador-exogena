@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="1007.xsd">
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1007</Formato>
+    <Version>9</Version>
+    <NumEnvio>6</NumEnvio>
+    <FecEnvio>2026-05-20T10:16:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>64018</ValorTotal>
+    <CantReg>16</CantReg>
+  </Cab>
+  <ingresos cpt="4001" tdoc="31" nid="999130019" raz="CLIENTE ANDINA 01 DE EJEMPLO S.A.S." pais="169" ibru="251236929" dred="5024739"/>
+  <ingresos cpt="4001" tdoc="31" nid="999130038" raz="CLIENTE ANDINA 02 DE EJEMPLO S.A.S." pais="169" ibru="251502470" dred="0"/>
+  <ingresos cpt="4001" tdoc="31" nid="999130057" raz="CLIENTE ANDINA 03 DE EJEMPLO S.A.S." pais="169" ibru="171131330" dred="0"/>
+  <ingresos cpt="4001" tdoc="31" nid="999130076" raz="CLIENTE ANDINA 04 DE EJEMPLO S.A.S." pais="169" ibru="179191929" dred="0"/>
+  <ingresos cpt="4001" tdoc="31" nid="999130095" raz="CLIENTE ANDINA 05 DE EJEMPLO S.A.S." pais="169" ibru="228241893" dred="0"/>
+  <ingresos cpt="4001" tdoc="31" nid="999130114" raz="CLIENTE ANDINA 06 DE EJEMPLO S.A.S." pais="169" ibru="179696894" dred="3593938"/>
+  <ingresos cpt="4001" tdoc="31" nid="999130133" raz="CLIENTE ANDINA 07 DE EJEMPLO S.A.S." pais="169" ibru="155371812" dred="0"/>
+  <ingresos cpt="4001" tdoc="31" nid="999130152" raz="CLIENTE ANDINA 08 DE EJEMPLO S.A.S." pais="169" ibru="187404122" dred="0"/>
+  <ingresos cpt="4001" tdoc="31" nid="999130171" raz="CLIENTE ANDINA 09 DE EJEMPLO S.A.S." pais="169" ibru="249243446" dred="0"/>
+  <ingresos cpt="4001" tdoc="31" nid="999130190" raz="CLIENTE ANDINA 10 DE EJEMPLO S.A.S." pais="169" ibru="169014294" dred="0"/>
+  <ingresos cpt="4001" tdoc="31" nid="999130209" raz="CLIENTE ANDINA 11 DE EJEMPLO S.A.S." pais="169" ibru="180651865" dred="3613037"/>
+  <ingresos cpt="4001" tdoc="31" nid="999130228" raz="CLIENTE ANDINA 12 DE EJEMPLO S.A.S." pais="169" ibru="147315399" dred="0"/>
+  <ingresos cpt="4001" tdoc="13" nid="1990004299" apl1="CLIENTE" apl2="ARIAS" nom1="ELENA" pais="169" ibru="86624309" dred="0"/>
+  <ingresos cpt="4001" tdoc="13" nid="1990004322" apl1="COMPRADOR" apl2="VEGA" nom1="MATEO" pais="169" ibru="189626832" dred="0"/>
+  <ingresos cpt="4001" tdoc="43" nid="222222222" raz="CUANTÍAS MENORES" pais="169" ibru="32084808" dred="0"/>
+  <ingresos cpt="4003" tdoc="31" nid="999800037" raz="BANCO AGRARIO DE EJEMPLO S.A." pais="169" ibru="2335213" dred="0"/>
+</mas>

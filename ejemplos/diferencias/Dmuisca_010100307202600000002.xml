@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas>
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1003</Formato>
+    <Version>7</Version>
+    <NumEnvio>2</NumEnvio>
+    <FecEnvio>2026-05-16T10:12:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>21972739</ValorTotal>
+    <CantReg>14</CantReg>
+  </Cab>
+  <rets cpt="1302" tdoc="31" nid="999230019" dv="0" raz="CLIENTE VALLE 01 DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mcpo="001" valor="83883918" ret="2097098"/>
+  <rets cpt="1309" tdoc="31" nid="999230019" dv="0" raz="CLIENTE VALLE 01 DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mcpo="001" valor="15937944" ret="2390692"/>
+  <rets cpt="1302" tdoc="31" nid="999230038" dv="0" raz="CLIENTE VALLE 02 DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mcpo="001" valor="75916430" ret="1897911"/>
+  <rets cpt="1309" tdoc="31" nid="999230038" dv="0" raz="CLIENTE VALLE 02 DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mcpo="001" valor="75916430" ret="2163618"/>
+  <rets cpt="1302" tdoc="31" nid="999230057" dv="0" raz="CLIENTE VALLE 03 DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mcpo="001" valor="52194120" ret="1304853"/>
+  <rets cpt="1309" tdoc="31" nid="999230057" dv="0" raz="CLIENTE VALLE 03 DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mcpo="001" valor="9916883" ret="1487532"/>
+  <rets cpt="1302" tdoc="31" nid="999230076" dv="0" raz="CLIENTE VALLE 04 DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mcpo="001" valor="44779117" ret="1119478"/>
+  <rets cpt="1309" tdoc="31" nid="999230076" dv="0" raz="CLIENTE VALLE 04 DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mcpo="001" valor="8508032" ret="1276205"/>
+  <rets cpt="1302" tdoc="31" nid="999230095" dv="0" raz="CLIENTE VALLE 05 DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mcpo="001" valor="55420302" ret="1385508"/>
+  <rets cpt="1302" tdoc="31" nid="999230114" dv="2" raz="CLIENTE VALLE 06 DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mcpo="001" valor="55356799" ret="1383920"/>
+  <rets cpt="1302" tdoc="31" nid="999230133" dv="2" raz="CLIENTE VALLE 07 DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mcpo="001" valor="51722849" ret="1293071"/>
+  <rets cpt="1302" tdoc="31" nid="999230152" dv="2" raz="CLIENTE VALLE 08 DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mcpo="001" valor="91818125" ret="2295453"/>
+  <rets cpt="1302" tdoc="31" nid="999230171" dv="2" raz="CLIENTE VALLE 09 DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mcpo="001" valor="70615998" ret="1765400"/>
+  <rets cpt="1306" tdoc="31" nid="999800049" dv="8" raz="BANCO AGRARIO DE EJEMPLO S.A." dir="CR 43A 1 50 LC 12" dpto="05" mcpo="001" valor="1600000" ret="112000"/>
+</mas>

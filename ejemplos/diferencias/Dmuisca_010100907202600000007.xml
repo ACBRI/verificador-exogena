@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas>
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1009</Formato>
+    <Version>7</Version>
+    <NumEnvio>7</NumEnvio>
+    <FecEnvio>2026-05-21T10:17:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>99191024</ValorTotal>
+    <CantReg>12</CantReg>
+  </Cab>
+  <saldoscp cpt="2201" tdoc="31" nid="999210011" dv="7" raz="PROVEEDOR VALLE UNO DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" sal="4946144"/>
+  <saldoscp cpt="2201" tdoc="31" nid="999210022" dv="8" raz="PROVEEDOR VALLE DOS DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" sal="3804929"/>
+  <saldoscp cpt="2201" tdoc="31" nid="999210033" dv="9" raz="PROVEEDOR VALLE TRES DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" sal="7706189"/>
+  <saldoscp cpt="2201" tdoc="31" nid="999210044" dv="1" raz="PROVEEDOR VALLE CUATRO DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mun="001" pais="169" sal="6803274"/>
+  <saldoscp cpt="2201" tdoc="31" nid="999210055" dv="0" raz="PROVEEDOR VALLE CINCO DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mun="001" pais="169" sal="9183200"/>
+  <saldoscp cpt="2203" tdoc="31" nid="999800023" dv="7" raz="BANCO DE EJEMPLO S.A." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" sal="48000000"/>
+  <saldoscp cpt="2204" tdoc="31" nid="800197268" dv="4" raz="U.A.E. DIRECCIÓN DE IMPUESTOS Y ADUANAS NACIONALES" dir="CR 8 6C 38" dpto="11" mun="001" pais="169" sal="9777288"/>
+  <saldoscp cpt="2214" tdoc="31" nid="999810039" dv="7" raz="FONDO DE PENSIONES DE EJEMPLO S.A." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" sal="2560000"/>
+  <saldoscp cpt="2214" tdoc="31" nid="999810013" dv="6" raz="EPS SALUD DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" sal="2000000"/>
+  <saldoscp cpt="2206" tdoc="43" nid="222222222" raz="CUANTÍAS MENORES" dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" sal="410000"/>
+  <saldoscp cpt="2201" tdoc="31" nid="999210077" dv="5" raz="PROVEEDOR VALLE SIETE DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" sal="2700000"/>
+  <saldoscp cpt="2206" tdoc="31" nid="999220026" dv="1" raz="SERVICIOS DE ASEO VALLE DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mun="999" pais="169" sal="1300000"/>
+</mas>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="1006.xsd">
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1006</Formato>
+    <Version>8</Version>
+    <NumEnvio>5</NumEnvio>
+    <FecEnvio>2026-05-19T10:15:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>441</ValorTotal>
+    <CantReg>15</CantReg>
+  </Cab>
+  <impoventas tdoc="31" nid="999130019" dv="1" raz="CLIENTE ANDINA 01 DE EJEMPLO S.A.S." imp="46780316" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999130038" dv="1" raz="CLIENTE ANDINA 02 DE EJEMPLO S.A.S." imp="47785469" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999130057" dv="1" raz="CLIENTE ANDINA 03 DE EJEMPLO S.A.S." imp="32514953" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999130076" dv="1" raz="CLIENTE ANDINA 04 DE EJEMPLO S.A.S." imp="34046467" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999130095" dv="1" raz="CLIENTE ANDINA 05 DE EJEMPLO S.A.S." imp="43365960" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999130114" dv="3" raz="CLIENTE ANDINA 06 DE EJEMPLO S.A.S." imp="33459562" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999130133" dv="3" raz="CLIENTE ANDINA 07 DE EJEMPLO S.A.S." imp="29520644" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999130152" dv="3" raz="CLIENTE ANDINA 08 DE EJEMPLO S.A.S." imp="35606783" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999130171" dv="3" raz="CLIENTE ANDINA 09 DE EJEMPLO S.A.S." imp="47356255" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999130190" dv="3" raz="CLIENTE ANDINA 10 DE EJEMPLO S.A.S." imp="32112716" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999130209" dv="4" raz="CLIENTE ANDINA 11 DE EJEMPLO S.A.S." imp="33637377" iva="0" icon="0"/>
+  <impoventas tdoc="31" nid="999130228" dv="4" raz="CLIENTE ANDINA 12 DE EJEMPLO S.A.S." imp="27989926" iva="0" icon="0"/>
+  <impoventas tdoc="13" nid="1990004299" apl1="CLIENTE" apl2="ARIAS" nom1="ELENA" imp="16458619" iva="0" icon="0"/>
+  <impoventas tdoc="13" nid="1990004322" apl1="COMPRADOR" apl2="VEGA" nom1="MATEO" imp="36029098" iva="0" icon="0"/>
+  <impoventas tdoc="43" nid="222222222" raz="CUANTÍAS MENORES" imp="6096114" iva="0" icon="0"/>
+</mas>

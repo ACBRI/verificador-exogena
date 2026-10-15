@@ -1,0 +1,18 @@
+{
+  "nombre": "Servicios del Valle de Ejemplo S.A.S.",
+  "nit": "999200017",
+  "dv": "8",
+  "personaJuridica": true,
+  "sembradas": {
+    "C1a": 2250000,
+    "C2": 450000,
+    "C3": -3800000,
+    "C5a": -12000000,
+    "C7a": 600000,
+    "C8a": 9000000,
+    "C4": 1140000,
+    "C6": 18500000,
+    "C7b": -380000,
+    "C8c": 3200000
+  }
+}

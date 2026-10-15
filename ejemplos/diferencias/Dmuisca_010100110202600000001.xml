@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas>
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1001</Formato>
+    <Version>10</Version>
+    <NumEnvio>1</NumEnvio>
+    <FecEnvio>2026-05-15T10:11:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>165452</ValorTotal>
+    <CantReg>33</CantReg>
+  </Cab>
+  <pagos cpt="5007" tdoc="31" nid="999210011" raz="PROVEEDOR VALLE UNO DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="20278589" pnded="0" ided="0" inded="0" retp="506965" reta="0" comun="577940" ndom="0"/>
+  <pagos cpt="5007" tdoc="31" nid="999210022" raz="PROVEEDOR VALLE DOS DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" pago="21253911" pnded="0" ided="0" inded="0" retp="531348" reta="0" comun="605736" ndom="0"/>
+  <pagos cpt="5007" tdoc="31" nid="999210033" raz="PROVEEDOR VALLE TRES DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="40862437" pnded="0" ided="0" inded="0" retp="1021561" reta="0" comun="1164579" ndom="0"/>
+  <pagos cpt="5007" tdoc="31" nid="999210044" raz="PROVEEDOR VALLE CUATRO DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mun="001" pais="169" pago="25729909" pnded="0" ided="0" inded="0" retp="643248" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5007" tdoc="31" nid="999210055" raz="PROVEEDOR VALLE CINCO DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mun="001" pais="169" pago="44791112" pnded="0" ided="0" inded="0" retp="1119778" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5007" tdoc="31" nid="999210066" raz="PROVEEDOR VALLE SEIS DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="31893575" pnded="0" ided="0" inded="0" retp="797339" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5007" tdoc="31" nid="999210077" raz="PROVEEDOR VALLE SIETE DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" pago="25415998" pnded="0" ided="0" inded="0" retp="635400" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5007" tdoc="31" nid="999210088" raz="PROVEEDOR VALLE OCHO DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="35648947" pnded="0" ided="0" inded="0" retp="891224" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5004" tdoc="31" nid="999220013" raz="SERVICIOS LOGÍSTICOS VALLE DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="15789474" pnded="0" ided="0" inded="0" retp="631579" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5004" tdoc="31" nid="999220026" raz="SERVICIOS DE ASEO VALLE DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mun="001" pais="169" pago="18954788" pnded="0" ided="0" inded="0" retp="758192" reta="0" comun="540212" ndom="0"/>
+  <pagos cpt="5004" tdoc="31" nid="999220039" raz="SERVICIOS DE VIGILANCIA VALLE DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mun="001" pais="169" pago="29367289" pnded="0" ided="0" inded="0" retp="1174692" reta="0" comun="836968" ndom="0"/>
+  <pagos cpt="5004" tdoc="31" nid="999220052" raz="SERVICIOS DE SISTEMAS VALLE DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="62500000" pnded="0" ided="0" inded="0" retp="250000" reta="0" comun="1781250" ndom="0"/>
+  <pagos cpt="5004" tdoc="31" nid="999220065" raz="SERVICIOS DE TRANSPORTE VALLE DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" pago="12286263" pnded="0" ided="0" inded="0" retp="491451" reta="0" comun="350159" ndom="0"/>
+  <pagos cpt="5004" tdoc="31" nid="999220078" raz="SERVICIOS DE PUBLICIDAD VALLE DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="27113937" pnded="0" ided="0" inded="0" retp="1084557" reta="0" comun="772747" ndom="0"/>
+  <pagos cpt="5002" tdoc="13" nid="1990002017" apl1="EJEMPLO" apl2="TORRES" nom1="ANA" nom2="LUCÍA" dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="12738126" pnded="0" ided="0" inded="0" retp="1273813" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5002" tdoc="13" nid="1990002034" apl1="MUESTRA" apl2="PEÑA" nom1="CARLOS" nom2="ANDRÉS" dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" pago="15451011" pnded="0" ided="0" inded="0" retp="1545101" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5002" tdoc="13" nid="1990002051" apl1="PRUEBA" apl2="GÓMEZ" nom1="MARÍA" nom2="JOSÉ" dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="32408030" pnded="0" ided="0" inded="0" retp="3240803" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5005" tdoc="13" nid="1990002068" apl1="FICTICIO" apl2="RUIZ" nom1="JUAN" nom2="PABLO" dir="CL 72 54 31 BG 3" dpto="08" mun="001" pais="169" pago="50400000" pnded="0" ided="0" inded="0" retp="1764000" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5006" tdoc="31" nid="999800023" raz="BANCO DE EJEMPLO S.A." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="11454823" pnded="0" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5101" tdoc="31" nid="800197268" raz="U.A.E. DIRECCIÓN DE IMPUESTOS Y ADUANAS NACIONALES" dir="CR 8 6C 38" dpto="11" mun="001" pais="169" pago="1733686" pnded="1733686" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5011" tdoc="31" nid="999810013" raz="EPS SALUD DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="16320000" pnded="7680000" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5011" tdoc="31" nid="999810021" raz="ARL POSITIVA DE EJEMPLO S.A." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="1002240" pnded="0" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5012" tdoc="31" nid="999810039" raz="FONDO DE PENSIONES DE EJEMPLO S.A." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="23040000" pnded="7680000" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5010" tdoc="31" nid="999810047" raz="CAJA DE COMPENSACIÓN DE EJEMPLO" dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="7680000" pnded="0" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5015" tdoc="31" nid="999700014" raz="MUNICIPIO DE EJEMPLO DEL VALLE" dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="4532738" pnded="0" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5081" tdoc="42" nid="US8829104" raz="EXAMPLE CLOUD SOFTWARE INC" pais="249" pago="7200000" pnded="0" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="1368000"/>
+  <pagos cpt="5016" tdoc="43" nid="222222222" raz="CUANTÍAS MENORES" dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="2025823" pnded="0" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5008" tdoc="31" nid="999210055" raz="PROVEEDOR VALLE CINCO DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mun="001" pais="169" pago="14500000" pnded="0" ided="0" inded="0" retp="362500" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5035" tdoc="31" nid="999820018" raz="SEGUROS GENERALES DE EJEMPLO S.A." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="6600000" pnded="0" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5019" tdoc="31" nid="999820018" raz="SEGUROS GENERALES DE EJEMPLO S.A." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" pago="3300000" pnded="0" ided="0" inded="0" retp="0" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5016" tdoc="31" nid="999220078" raz="SERVICIOS DE PUBLICIDAD VALLE DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="4500000" pnded="0" ided="855000" inded="0" retp="180000" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5004" tdoc="43" nid="222222222" raz="CUANTÍAS MENORES" dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" pago="875000" pnded="0" ided="0" inded="0" retp="35000" reta="0" comun="0" ndom="0"/>
+  <pagos cpt="5016" tdoc="31" nid="999240015" raz="PAPELERÍA RÁPIDA DE EJEMPLO S.A.S." dpto="76" mun="001" pais="169" pago="1900000" pnded="0" ided="0" inded="0" retp="47500" reta="0" comun="0" ndom="0"/>
+</mas>

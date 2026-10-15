@@ -1,0 +1,105 @@
+﻿Declaración;Casilla;Concepto;Periodo;Valor
+Renta 110;36;Efectivo y equivalentes al efectivo;Año;84184000
+Renta 110;37;Inversiones e instrumentos financieros derivados;Año;50000000
+Renta 110;38;Cuentas, documentos y arrendamientos financieros por cobrar;Año;159950000
+Renta 110;45;Pasivos;Año;146142000
+Renta 110;58;Total ingresos brutos;Año;2660674000
+Renta 110;59;Devoluciones, rebajas y descuentos en ventas;Año;12232000
+Renta 110;62;Costos;Año;881677000
+Renta 110;63;Gastos de administración;Año;437184000
+Renta 110;64;Gastos de distribución y ventas;Año;156137000
+Renta 110;65;Gastos financieros;Año;11702000
+Renta 110;66;Otros gastos y deducciones;Año;31227000
+Renta 110;80;Ingresos por ganancias ocasionales (opcional);Año;
+Renta 110;105;Autorretenciones (opcional);Año;10643000
+Renta 110;106;Otras retenciones;Año;46438000
+IVA 300;67;Total impuesto generado por operaciones gravadas;Bimestre 1;90823000
+IVA 300;67;Total impuesto generado por operaciones gravadas;Bimestre 2;90654000
+IVA 300;67;Total impuesto generado por operaciones gravadas;Bimestre 3;78774000
+IVA 300;67;Total impuesto generado por operaciones gravadas;Bimestre 4;84547000
+IVA 300;67;Total impuesto generado por operaciones gravadas;Bimestre 5;86007000
+IVA 300;67;Total impuesto generado por operaciones gravadas;Bimestre 6;71955000
+IVA 300;81;Total impuestos descontables;Bimestre 1;33169000
+IVA 300;81;Total impuestos descontables;Bimestre 2;33107000
+IVA 300;81;Total impuestos descontables;Bimestre 3;28769000
+IVA 300;81;Total impuestos descontables;Bimestre 4;30877000
+IVA 300;81;Total impuestos descontables;Bimestre 5;31410000
+IVA 300;81;Total impuestos descontables;Bimestre 6;26279000
+IVA 300;85;Retenciones por IVA que le practicaron (opcional);Bimestre 1;4392000
+IVA 300;85;Retenciones por IVA que le practicaron (opcional);Bimestre 2;4384000
+IVA 300;85;Retenciones por IVA que le practicaron (opcional);Bimestre 3;3809000
+IVA 300;85;Retenciones por IVA que le practicaron (opcional);Bimestre 4;4088000
+IVA 300;85;Retenciones por IVA que le practicaron (opcional);Bimestre 5;4159000
+IVA 300;85;Retenciones por IVA que le practicaron (opcional);Bimestre 6;3480000
+Retenciones 350;130;Total retenciones renta y complementario;Enero;3660000
+Retenciones 350;130;Total retenciones renta y complementario;Febrero;5498000
+Retenciones 350;130;Total retenciones renta y complementario;Marzo;4178000
+Retenciones 350;130;Total retenciones renta y complementario;Abril;4963000
+Retenciones 350;130;Total retenciones renta y complementario;Mayo;4523000
+Retenciones 350;130;Total retenciones renta y complementario;Junio;3420000
+Retenciones 350;130;Total retenciones renta y complementario;Julio;4214000
+Retenciones 350;130;Total retenciones renta y complementario;Agosto;4312000
+Retenciones 350;130;Total retenciones renta y complementario;Septiembre;3782000
+Retenciones 350;130;Total retenciones renta y complementario;Octubre;4892000
+Retenciones 350;130;Total retenciones renta y complementario;Noviembre;3705000
+Retenciones 350;130;Total retenciones renta y complementario;Diciembre;3554000
+Retenciones 350;68 a 76 y 121 a 128;Autorretenciones (suma de esas casillas);Enero;768000
+Retenciones 350;68 a 76 y 121 a 128;Autorretenciones (suma de esas casillas);Febrero;1154000
+Retenciones 350;68 a 76 y 121 a 128;Autorretenciones (suma de esas casillas);Marzo;877000
+Retenciones 350;68 a 76 y 121 a 128;Autorretenciones (suma de esas casillas);Abril;1042000
+Retenciones 350;68 a 76 y 121 a 128;Autorretenciones (suma de esas casillas);Mayo;949000
+Retenciones 350;68 a 76 y 121 a 128;Autorretenciones (suma de esas casillas);Junio;718000
+Retenciones 350;68 a 76 y 121 a 128;Autorretenciones (suma de esas casillas);Julio;885000
+Retenciones 350;68 a 76 y 121 a 128;Autorretenciones (suma de esas casillas);Agosto;905000
+Retenciones 350;68 a 76 y 121 a 128;Autorretenciones (suma de esas casillas);Septiembre;794000
+Retenciones 350;68 a 76 y 121 a 128;Autorretenciones (suma de esas casillas);Octubre;1027000
+Retenciones 350;68 a 76 y 121 a 128;Autorretenciones (suma de esas casillas);Noviembre;778000
+Retenciones 350;68 a 76 y 121 a 128;Autorretenciones (suma de esas casillas);Diciembre;746000
+Retenciones 350;93;Retención por rentas de trabajo;Enero;388000
+Retenciones 350;93;Retención por rentas de trabajo;Febrero;582000
+Retenciones 350;93;Retención por rentas de trabajo;Marzo;442000
+Retenciones 350;93;Retención por rentas de trabajo;Abril;525000
+Retenciones 350;93;Retención por rentas de trabajo;Mayo;479000
+Retenciones 350;93;Retención por rentas de trabajo;Junio;362000
+Retenciones 350;93;Retención por rentas de trabajo;Julio;446000
+Retenciones 350;93;Retención por rentas de trabajo;Agosto;457000
+Retenciones 350;93;Retención por rentas de trabajo;Septiembre;400000
+Retenciones 350;93;Retención por rentas de trabajo;Octubre;518000
+Retenciones 350;93;Retención por rentas de trabajo;Noviembre;392000
+Retenciones 350;93;Retención por rentas de trabajo;Diciembre;377000
+Retenciones 350;94;Retención por rentas de pensiones;Enero;
+Retenciones 350;94;Retención por rentas de pensiones;Febrero;
+Retenciones 350;94;Retención por rentas de pensiones;Marzo;
+Retenciones 350;94;Retención por rentas de pensiones;Abril;
+Retenciones 350;94;Retención por rentas de pensiones;Mayo;
+Retenciones 350;94;Retención por rentas de pensiones;Junio;
+Retenciones 350;94;Retención por rentas de pensiones;Julio;
+Retenciones 350;94;Retención por rentas de pensiones;Agosto;
+Retenciones 350;94;Retención por rentas de pensiones;Septiembre;
+Retenciones 350;94;Retención por rentas de pensiones;Octubre;
+Retenciones 350;94;Retención por rentas de pensiones;Noviembre;
+Retenciones 350;94;Retención por rentas de pensiones;Diciembre;
+Retenciones 350;134;Total retenciones IVA;Enero;833000
+Retenciones 350;134;Total retenciones IVA;Febrero;1251000
+Retenciones 350;134;Total retenciones IVA;Marzo;951000
+Retenciones 350;134;Total retenciones IVA;Abril;1129000
+Retenciones 350;134;Total retenciones IVA;Mayo;1029000
+Retenciones 350;134;Total retenciones IVA;Junio;778000
+Retenciones 350;134;Total retenciones IVA;Julio;959000
+Retenciones 350;134;Total retenciones IVA;Agosto;981000
+Retenciones 350;134;Total retenciones IVA;Septiembre;861000
+Retenciones 350;134;Total retenciones IVA;Octubre;1113000
+Retenciones 350;134;Total retenciones IVA;Noviembre;843000
+Retenciones 350;134;Total retenciones IVA;Diciembre;809000
+Retenciones 350;135;Retenciones impuesto de timbre (opcional);Enero;
+Retenciones 350;135;Retenciones impuesto de timbre (opcional);Febrero;
+Retenciones 350;135;Retenciones impuesto de timbre (opcional);Marzo;
+Retenciones 350;135;Retenciones impuesto de timbre (opcional);Abril;
+Retenciones 350;135;Retenciones impuesto de timbre (opcional);Mayo;
+Retenciones 350;135;Retenciones impuesto de timbre (opcional);Junio;
+Retenciones 350;135;Retenciones impuesto de timbre (opcional);Julio;
+Retenciones 350;135;Retenciones impuesto de timbre (opcional);Agosto;
+Retenciones 350;135;Retenciones impuesto de timbre (opcional);Septiembre;
+Retenciones 350;135;Retenciones impuesto de timbre (opcional);Octubre;
+Retenciones 350;135;Retenciones impuesto de timbre (opcional);Noviembre;
+Retenciones 350;135;Retenciones impuesto de timbre (opcional);Diciembre;

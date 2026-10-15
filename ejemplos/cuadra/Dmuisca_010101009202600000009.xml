@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="1010.xsd">
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1010</Formato>
+    <Version>9</Version>
+    <NumEnvio>9</NumEnvio>
+    <FecEnvio>2026-05-23T10:19:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>100000000</ValorTotal>
+    <CantReg>3</CantReg>
+  </Cab>
+  <socios tdoc="13" nid="1990005003" apl1="FUNDADOR" apl2="EJEMPLO" nom1="RICARDO" dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" valnom="60000000" valprm="0" por="60" dec="0"/>
+  <socios tdoc="13" nid="1990005037" apl1="SOCIA" apl2="EJEMPLO" nom1="CAROLINA" dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" valnom="30000000" valprm="0" por="30" dec="0"/>
+  <socios tdoc="31" nid="999300024" dv="9" raz="INVERSIONES FAMILIARES DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" valnom="10000000" valprm="5000000" por="10" dec="0"/>
+</mas>

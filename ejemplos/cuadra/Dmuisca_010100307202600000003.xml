@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="1003.xsd">
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1003</Formato>
+    <Version>7</Version>
+    <NumEnvio>3</NumEnvio>
+    <FecEnvio>2026-05-17T10:13:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>70749805</ValorTotal>
+    <CantReg>14</CantReg>
+  </Cab>
+  <rets cpt="1302" tdoc="31" nid="999130019" dv="1" raz="CLIENTE ANDINA 01 DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mcpo="001" valor="251236929" ret="6280923"/>
+  <rets cpt="1309" tdoc="31" nid="999130019" dv="1" raz="CLIENTE ANDINA 01 DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mcpo="001" valor="47735017" ret="7160253"/>
+  <rets cpt="1302" tdoc="31" nid="999130038" dv="1" raz="CLIENTE ANDINA 02 DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mcpo="001" valor="251502470" ret="6287562"/>
+  <rets cpt="1309" tdoc="31" nid="999130038" dv="1" raz="CLIENTE ANDINA 02 DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mcpo="001" valor="47785469" ret="7167820"/>
+  <rets cpt="1302" tdoc="31" nid="999130057" dv="1" raz="CLIENTE ANDINA 03 DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mcpo="001" valor="171131330" ret="4278283"/>
+  <rets cpt="1309" tdoc="31" nid="999130057" dv="1" raz="CLIENTE ANDINA 03 DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mcpo="001" valor="32514953" ret="4877243"/>
+  <rets cpt="1302" tdoc="31" nid="999130076" dv="1" raz="CLIENTE ANDINA 04 DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mcpo="001" valor="179191929" ret="4479798"/>
+  <rets cpt="1309" tdoc="31" nid="999130076" dv="1" raz="CLIENTE ANDINA 04 DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mcpo="001" valor="34046467" ret="5106970"/>
+  <rets cpt="1302" tdoc="31" nid="999130095" dv="1" raz="CLIENTE ANDINA 05 DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mcpo="001" valor="228241893" ret="5706047"/>
+  <rets cpt="1302" tdoc="31" nid="999130114" dv="3" raz="CLIENTE ANDINA 06 DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mcpo="001" valor="179696894" ret="4492422"/>
+  <rets cpt="1302" tdoc="31" nid="999130133" dv="3" raz="CLIENTE ANDINA 07 DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mcpo="001" valor="155371812" ret="3884295"/>
+  <rets cpt="1302" tdoc="31" nid="999130152" dv="3" raz="CLIENTE ANDINA 08 DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mcpo="001" valor="187404122" ret="4685103"/>
+  <rets cpt="1302" tdoc="31" nid="999130171" dv="3" raz="CLIENTE ANDINA 09 DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mcpo="001" valor="249243446" ret="6231086"/>
+  <rets cpt="1306" tdoc="31" nid="999800037" dv="1" raz="BANCO AGRARIO DE EJEMPLO S.A." dir="CR 43A 1 50 LC 12" dpto="05" mcpo="001" valor="1600000" ret="112000"/>
+</mas>

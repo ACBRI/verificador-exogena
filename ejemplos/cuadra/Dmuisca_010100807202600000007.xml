@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="1008.xsd">
+  <Cab>
+    <Ano>2026</Ano>
+    <CodCpt>1</CodCpt>
+    <Formato>1008</Formato>
+    <Version>7</Version>
+    <NumEnvio>7</NumEnvio>
+    <FecEnvio>2026-05-21T10:17:00</FecEnvio>
+    <FecInicial>2025-01-01</FecInicial>
+    <FecFinal>2025-12-31</FecFinal>
+    <ValorTotal>162250190</ValorTotal>
+    <CantReg>9</CantReg>
+  </Cab>
+  <saldoscc cpt="1315" tdoc="31" nid="999130019" dv="1" raz="CLIENTE ANDINA 01 DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" sal="30148431"/>
+  <saldoscc cpt="1315" tdoc="31" nid="999130057" dv="1" raz="CLIENTE ANDINA 03 DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mun="001" pais="169" sal="20535760"/>
+  <saldoscc cpt="1315" tdoc="31" nid="999130095" dv="1" raz="CLIENTE ANDINA 05 DE EJEMPLO S.A.S." dir="CL 26 69 76 OF 401" dpto="11" mun="001" pais="169" sal="27389027"/>
+  <saldoscc cpt="1315" tdoc="31" nid="999130133" dv="3" raz="CLIENTE ANDINA 07 DE EJEMPLO S.A.S." dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" sal="18644617"/>
+  <saldoscc cpt="1315" tdoc="31" nid="999130171" dv="3" raz="CLIENTE ANDINA 09 DE EJEMPLO S.A.S." dir="CR 27 36 14" dpto="68" mun="001" pais="169" sal="29909214"/>
+  <saldoscc cpt="1315" tdoc="31" nid="999130209" dv="4" raz="CLIENTE ANDINA 11 DE EJEMPLO S.A.S." dir="CR 43A 1 50 LC 12" dpto="05" mun="001" pais="169" sal="21678224"/>
+  <saldoscc cpt="1315" tdoc="13" nid="1990004299" apl1="CLIENTE" apl2="ARIAS" nom1="ELENA" dir="AV 6 NORTE 23 45" dpto="76" mun="001" pais="169" sal="10394917"/>
+  <saldoscc cpt="1317" tdoc="13" nid="1990001085" apl1="MODELO" apl2="DÍAZ" nom1="LAURA" dir="CR 27 36 14" dpto="68" mun="001" pais="169" sal="2400000"/>
+  <saldoscc cpt="1318" tdoc="31" nid="999130057" dv="1" raz="CLIENTE ANDINA 03 DE EJEMPLO S.A.S." dir="CL 72 54 31 BG 3" dpto="08" mun="001" pais="169" sal="1150000"/>
+</mas>
