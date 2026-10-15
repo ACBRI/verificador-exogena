@@ -1,0 +1,37 @@
+name: Pruebas
+
+# Corre en máquinas de GitHub (ubuntu-latest), nunca en los equipos propios del
+# Mac mini. Las mismas pruebas se corren en local con `npm test` y `npm run punta`.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pruebas-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: xmllint para validar los ejemplos contra los esquemas oficiales
+        run: sudo apt-get update -q && sudo apt-get install -y -q libxml2-utils
+      - name: Dependencias
+        run: npm ci
+      - name: Pruebas de la lógica, las reglas, los ejemplos y la página
+        run: npm test
+      - name: Navegador para la prueba de punta a punta
+        run: npx playwright-core install --with-deps --only-shell chromium
+      - name: Prueba de punta a punta en Chromium sin internet
+        run: npm run punta
