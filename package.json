@@ -1,0 +1,22 @@
+{
+  "name": "verificador-exogena",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Verificador de la exógena del año gravable 2025: cruza los XML presentados con la renta, el IVA y las retenciones, y muestra con semáforo dónde no cuadra. Todo se calcula en el navegador, sin internet.",
+  "license": "MIT",
+  "author": "Andrés Briñez (https://andresbrinez.com)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ACBRI/verificador-exogena.git"
+  },
+  "scripts": {
+    "test": "node --test",
+    "datos": "node herramientas/datos-oficiales.js",
+    "ejemplos": "node herramientas/generar-ejemplos.js",
+    "construir": "node herramientas/construir.js",
+    "punta": "node pruebas/punta-a-punta.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.61.1"
+  }
+}

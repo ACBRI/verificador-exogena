@@ -1,0 +1,7 @@
+# Los XSD oficiales y los XML de ejemplo van en ISO-8859-1, byte por byte: git no les toca los finales de línea.
+norma/xsd-ag2025/*.xsd -text
+ejemplos/**/*.xml -text
+ejemplos/**/*.csv -text
+*.woff2 binary
+*.png binary
+*.pdf binary
