@@ -511,6 +511,7 @@
     hoja.hidden = !res;
     $('acciones-informe').hidden = !res;
     $('resumen-texto').hidden = !res;
+    $('anticipo').hidden = !res;
     if (!res) return;
     hoja.textContent = '';
 
@@ -578,7 +579,8 @@
 
     const pie = el('footer', { clase: 'hoja-pie' },
       el('p', null, el('strong', { texto: 'contacto@andresbrinez.com' }), ' · andresbrinez.com'),
-      el('p', { texto: `Reglas del año gravable ${res.anio}, revisadas el ${fechaReglas(res.reglasRevisadas)}. Muestra diferencias y causas posibles; el contador decide.` }));
+      el('p', { texto: `Reglas del año gravable ${res.anio}, revisadas el ${fechaReglas(res.reglasRevisadas)}. Muestra diferencias y causas posibles; el contador decide.` }),
+      el('p', null, 'La exógena 2026 hecha y cuadrada: ', el('strong', { texto: 'andresbrinez.com/exogena-2026' })));
 
     hoja.append(cabecera, el('div', { clase: 'hoja-cuerpo' },
       el('div', { clase: 'hoja-cliente' }, el('h3', { texto: nombre }), el('p', { clase: 'hoja-meta', texto: meta })),

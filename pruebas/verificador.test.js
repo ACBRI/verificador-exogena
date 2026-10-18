@@ -556,8 +556,9 @@ describe('salidas', () => {
     assert.ok(!/\d{9}/.test(texto.replace(/\$[\d.]+/g, '')), 'no debe traer números de identificación');
     assert.ok(!texto.includes('ACREEDOR'));
     assert.ok(!texto.includes('Cliente de prueba'));
-    assert.match(texto, /contacto@andresbrinez\.com/);
     assert.match(texto, /C8b Pasivos: Revisar/);
+    // Termina con la oferta del año siguiente y el contacto.
+    assert.equal(texto.split('\n').pop(), 'La exógena 2026 hecha y cuadrada: andresbrinez.com/exogena-2026 · Andrés Briñez · contacto@andresbrinez.com');
   });
 
   test('plantilla para Excel y lectura de lo pegado', () => {

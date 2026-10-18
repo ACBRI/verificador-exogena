@@ -921,7 +921,7 @@
     const titulos = Array.from(new Set(resultado.hallazgos.filter((h) => h.gravedad !== 'informacion').map((h) => h.titulo)));
     if (titulos.length) r.push('Revisiones con hallazgos: ' + titulos.join('; ') + '.');
     r.push('');
-    r.push('¿Quiere ayuda con estas diferencias? Andrés Briñez · contacto@andresbrinez.com · andresbrinez.com');
+    r.push('La exógena 2026 hecha y cuadrada: andresbrinez.com/exogena-2026 · Andrés Briñez · contacto@andresbrinez.com');
     return r.join('\n');
   }
 

@@ -173,6 +173,7 @@ async function probar(clave) {
     const csp = await p.getAttribute('meta[http-equiv="Content-Security-Policy"]', 'content');
     assert.match(csp, /connect-src 'none'/);
     assert.ok(await p.isVisible('#informe-vacio'));
+    assert.ok(await p.isHidden('#anticipo'), 'la oferta de la exógena 2026 espera al informe');
     const fuentes = await p.evaluate(async () => { await document.fonts.ready; return ['Archivo', 'Literata', 'IBM Plex Mono'].map((f) => document.fonts.check(`16px "${f}"`)); });
     assert.deepEqual(fuentes, [true, true, true], 'las tres tipografías cargan desde la página');
     await capturar(p, 'inicio.png');
@@ -241,6 +242,28 @@ async function probar(clave) {
     assert.ok(!resumen.includes('999200017') && !resumen.includes('CLIENTE VALLE'));
   });
 
+  await paso('la exógena 2026 con anticipo: el botón en pantalla, la línea en el pie impreso y en el resumen', async () => {
+    assert.ok(await p.isVisible('#anticipo'));
+    const enlace = p.locator('#anticipo a.boton');
+    assert.equal((await enlace.textContent()).trim(), 'Quiero la exógena 2026 hecha y cuadrada');
+    assert.equal(await enlace.getAttribute('href'), 'https://andresbrinez.com/exogena-2026?origen=verificador');
+    assert.equal(await enlace.getAttribute('target'), '_blank');
+    assert.equal(await enlace.getAttribute('rel'), 'noopener');
+    assert.match(await p.textContent('#informe .hoja-pie'), /La exógena 2026 hecha y cuadrada: andresbrinez\.com\/exogena-2026/);
+    assert.match(await p.inputValue('#texto-resumen'), /andresbrinez\.com\/exogena-2026/);
+    assert.match(await p.textContent('.pie .firma-pie'), /Código abierto, licencia MIT/);
+    assert.equal(await p.getAttribute('.pie .firma-pie a[href^="https://github.com/"]', 'href'), 'https://github.com/ACBRI/verificador-exogena');
+    // Al imprimir se va el bloque con el botón; la línea del pie de la hoja se queda.
+    await p.emulateMedia({ media: 'print' });
+    const [bloque, pieHoja] = await p.evaluate(() => [
+      getComputedStyle(document.getElementById('anticipo')).display,
+      getComputedStyle(document.querySelector('#informe .hoja-pie')).display
+    ]);
+    await p.emulateMedia({ media: null });
+    assert.equal(bloque, 'none', 'el bloque del anticipo no se imprime');
+    assert.notEqual(pieHoja, 'none', 'el pie de la hoja sí se imprime');
+  });
+
   await paso('una explicación nueva vuelve la línea «Explicada», y quitarla la devuelve', async () => {
     const c2 = p.locator('#informe .detalle', { hasText: 'C2 Retención de IVA practicada' });
     await c2.locator('.form-explicacion input').first().fill('Retención de IVA de un proveedor que no quedó en el 1001');
@@ -269,6 +292,7 @@ async function probar(clave) {
   await paso('empezar otro cliente deja todo en blanco', async () => {
     await p.click('#nuevo-cliente');
     assert.ok(await p.isVisible('#informe-vacio'));
+    assert.ok(await p.isHidden('#anticipo'));
     assert.equal(await p.inputValue('#cliente-nombre'), '');
     assert.equal(await p.$$eval('#declaraciones input', (xs) => xs.filter((x) => x.value).length), 0);
   });

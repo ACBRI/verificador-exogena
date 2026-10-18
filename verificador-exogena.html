@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-SBruNZvdPld35ImDCY1txZsnR1Y/eRdMyLmr7/9rvpg=' 'sha256-TZ6DPrtd3G3XA33FEZYjHelXLov9XzluuIrYB5798EY='; style-src 'sha256-RmHpBc9+AefiA9jaGe4wPtZmcwll24wefkmXHv4bHbs='; font-src data:; img-src data: blob:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; media-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-SBruNZvdPld35ImDCY1txZsnR1Y/eRdMyLmr7/9rvpg=' 'sha256-alcxf55Fpv4+zQWIum3Yuqk0mGe97Afij5pOpM1Tbgo='; style-src 'sha256-2vAbrcHWNTyt7H9XPPINMZsekCbwDtJ6Y9J3X40PSoQ='; font-src data:; img-src data: blob:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; media-src 'none'">
   <meta name="referrer" content="no-referrer">
   <title>Verificador de exógena</title>
   <meta name="description" content="Cruza la exógena del año gravable 2025 con la renta, el IVA y las retenciones, y muestra con semáforo dónde no cuadra. Funciona sin internet; los datos no salen del computador.">
@@ -1670,6 +1670,32 @@ textarea:focus-visible {
   margin-bottom: 16px;
 }
 
+/* La exógena del año siguiente, con anticipo: solo en pantalla y solo con un informe. */
+.anticipo {
+  margin-top: 24px;
+  padding: 24px 20px;
+  border: 1px solid var(--bruma);
+  border-radius: var(--radio);
+  background: var(--cielo-alta);
+}
+
+.anticipo h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.anticipo p {
+  max-width: 46em;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 719px) {
+  .anticipo .boton {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* -------------------------------------------------------- cómo se calcula */
 
 .como {
@@ -1847,6 +1873,7 @@ textarea:focus-visible {
   .vacio,
   .acciones-informe,
   .resumen-texto,
+  .anticipo,
   .solo-pantalla,
   .detalle-texto,
   .causa-texto,
@@ -1939,7 +1966,7 @@ textarea:focus-visible {
    * Firefox y Safari redondean hacia arriba el alto de cada fila de la tabla, y
    * Chrome no: con 1,15 de interlineado y el semáforo en 1,35, el informe de
    * ejemplo pasaba la hoja carta por 5 px en Firefox y el pie saltaba a una
-   * segunda hoja. Con estos valores queda a unos 20 px del borde en los tres.
+   * segunda hoja. Con estos valores queda a unos 15 px del borde en los tres.
    */
   .cruces {
     font-size: 7pt;
@@ -2128,10 +2155,13 @@ textarea:focus-visible {
     min-width: 0;
   }
 
+  /* Tres líneas de texto que no caben en una sola a este ancho: justas, para no comerse la hoja. */
   .hoja-pie {
-    margin-top: 5px;
-    padding: 3px 10px;
+    margin-top: 3px;
+    padding: 2px 10px;
+    gap: 1px 12px;
     font-size: 6pt;
+    line-height: 1.2;
     break-inside: avoid;
   }
 }
@@ -2306,6 +2336,12 @@ textarea:focus-visible {
           <label for="texto-resumen" class="visualmente-oculto">Resumen sin NIT</label>
           <textarea id="texto-resumen" rows="12" readonly></textarea>
         </details>
+
+        <aside class="anticipo" id="anticipo" hidden aria-labelledby="titulo-anticipo">
+          <h3 id="titulo-anticipo">La exógena 2026, hecha y cuadrada</h3>
+          <p>Si algún cliente salió en rojo, puedo dejarle la exógena del año gravable 2026 hecha y cuadrada antes de que la DIAN la cruce. Reserve con un anticipo y entrego entre febrero y abril de 2027.</p>
+          <a class="boton" href="https://andresbrinez.com/exogena-2026?origen=verificador" target="_blank" rel="noopener">Quiero la exógena 2026 hecha y cuadrada</a>
+        </aside>
       </div>
     </section>
 
@@ -2336,7 +2372,7 @@ textarea:focus-visible {
     <div class="contenedor pie-cuerpo">
       <p class="firma-pie">
         <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g fill="none" stroke="#EFE9DC" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 41 H36"/><path d="M9 58 L36 8"/><path d="M36 8 V58"/><path d="M36 8 H45 A11 11 0 0 1 45 30 H36"/><path d="M36 30 H47 A14 14 0 0 1 47 58 H36"/></g><circle cx="46" cy="19" r="5" fill="#F07A3B"/></svg>
-        <span>Hecho por Andrés Briñez · <a href="https://andresbrinez.com">andresbrinez.com</a> · <a href="mailto:contacto@andresbrinez.com">contacto@andresbrinez.com</a></span>
+        <span>Hecho por Andrés Briñez · <a href="https://andresbrinez.com">andresbrinez.com</a> · <a href="mailto:contacto@andresbrinez.com">contacto@andresbrinez.com</a><br>Código abierto, licencia MIT · <a href="https://github.com/ACBRI/verificador-exogena">github.com/ACBRI/verificador-exogena</a></span>
       </p>
       <p id="pie-reglas"></p>
     </div>
@@ -8986,7 +9022,7 @@ textarea:focus-visible {
     const titulos = Array.from(new Set(resultado.hallazgos.filter((h) => h.gravedad !== 'informacion').map((h) => h.titulo)));
     if (titulos.length) r.push('Revisiones con hallazgos: ' + titulos.join('; ') + '.');
     r.push('');
-    r.push('¿Quiere ayuda con estas diferencias? Andrés Briñez · contacto@andresbrinez.com · andresbrinez.com');
+    r.push('La exógena 2026 hecha y cuadrada: andresbrinez.com/exogena-2026 · Andrés Briñez · contacto@andresbrinez.com');
     return r.join('\n');
   }
 
@@ -9581,6 +9617,7 @@ window.ExoEjemplos = {"diferencias":{"nombre":"Servicios del Valle de Ejemplo S.
     hoja.hidden = !res;
     $('acciones-informe').hidden = !res;
     $('resumen-texto').hidden = !res;
+    $('anticipo').hidden = !res;
     if (!res) return;
     hoja.textContent = '';
 
@@ -9648,7 +9685,8 @@ window.ExoEjemplos = {"diferencias":{"nombre":"Servicios del Valle de Ejemplo S.
 
     const pie = el('footer', { clase: 'hoja-pie' },
       el('p', null, el('strong', { texto: 'contacto@andresbrinez.com' }), ' · andresbrinez.com'),
-      el('p', { texto: `Reglas del año gravable ${res.anio}, revisadas el ${fechaReglas(res.reglasRevisadas)}. Muestra diferencias y causas posibles; el contador decide.` }));
+      el('p', { texto: `Reglas del año gravable ${res.anio}, revisadas el ${fechaReglas(res.reglasRevisadas)}. Muestra diferencias y causas posibles; el contador decide.` }),
+      el('p', null, 'La exógena 2026 hecha y cuadrada: ', el('strong', { texto: 'andresbrinez.com/exogena-2026' })));
 
     hoja.append(cabecera, el('div', { clase: 'hoja-cuerpo' },
       el('div', { clase: 'hoja-cliente' }, el('h3', { texto: nombre }), el('p', { clase: 'hoja-meta', texto: meta })),

@@ -1617,6 +1617,32 @@ textarea:focus-visible {
   margin-bottom: 16px;
 }
 
+/* La exógena del año siguiente, con anticipo: solo en pantalla y solo con un informe. */
+.anticipo {
+  margin-top: 24px;
+  padding: 24px 20px;
+  border: 1px solid var(--bruma);
+  border-radius: var(--radio);
+  background: var(--cielo-alta);
+}
+
+.anticipo h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.anticipo p {
+  max-width: 46em;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 719px) {
+  .anticipo .boton {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* -------------------------------------------------------- cómo se calcula */
 
 .como {
@@ -1794,6 +1820,7 @@ textarea:focus-visible {
   .vacio,
   .acciones-informe,
   .resumen-texto,
+  .anticipo,
   .solo-pantalla,
   .detalle-texto,
   .causa-texto,
@@ -1886,7 +1913,7 @@ textarea:focus-visible {
    * Firefox y Safari redondean hacia arriba el alto de cada fila de la tabla, y
    * Chrome no: con 1,15 de interlineado y el semáforo en 1,35, el informe de
    * ejemplo pasaba la hoja carta por 5 px en Firefox y el pie saltaba a una
-   * segunda hoja. Con estos valores queda a unos 20 px del borde en los tres.
+   * segunda hoja. Con estos valores queda a unos 15 px del borde en los tres.
    */
   .cruces {
     font-size: 7pt;
@@ -2075,10 +2102,13 @@ textarea:focus-visible {
     min-width: 0;
   }
 
+  /* Tres líneas de texto que no caben en una sola a este ancho: justas, para no comerse la hoja. */
   .hoja-pie {
-    margin-top: 5px;
-    padding: 3px 10px;
+    margin-top: 3px;
+    padding: 2px 10px;
+    gap: 1px 12px;
     font-size: 6pt;
+    line-height: 1.2;
     break-inside: avoid;
   }
 }

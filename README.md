@@ -26,6 +26,9 @@ Excel) unas cifras de sus declaraciones del mismo año. La página arma un infor
 Además descarga un CSV con todo para el papel de trabajo y da un resumen sin NIT ni nombres de terceros,
 para pedir ayuda sin compartir datos de terceros.
 
+Debajo del informe, en el pie de la hoja impresa y al final del resumen va la oferta del año siguiente: la
+exógena del año gravable 2026 hecha y cuadrada, reservada con un anticipo, en andresbrinez.com/exogena-2026.
+
 | La empresa de ejemplo con diferencias, en pantalla | En el teléfono |
 | --- | --- |
 | ![El informe en pantalla: fichas con cuántos cruces no cuadran, la tabla de cruces y el detalle de cada diferencia](docs/capturas/informe.png) | ![El informe en un teléfono: cada línea del cruce es una ficha con su semáforo](docs/capturas/telefono.png) |
@@ -229,13 +232,13 @@ quedó apuntando a un atributo que ya no existe.
 ## Navegadores probados
 
 La prueba de punta a punta pasa completa en los tres motores de navegador que hay en Windows y en Mac.
-Se corrió el 15 de octubre de 2026 con Playwright 1.61.1, en Ubuntu 26.04:
+Se corrió el 17 de octubre de 2026 con Playwright 1.61.1, en Ubuntu 26.04:
 
 | Motor | Versión | Es el de | Resultado |
 | --- | --- | --- | --- |
-| Chromium | 149.0.7827.55 | Chrome y Edge, en Windows y en Mac | 17 de 17 pasos |
-| Firefox | 151.0 | Firefox, en Windows y en Mac | 17 de 17 pasos |
-| WebKit | 26.5 | Safari, en Mac | 17 de 17 pasos |
+| Chromium | 149.0.7827.55 | Chrome y Edge, en Windows y en Mac | 18 de 18 pasos |
+| Firefox | 151.0 | Firefox, en Windows y en Mac | 18 de 18 pasos |
+| WebKit | 26.5 | Safari, en Mac | 18 de 18 pasos |
 
 En cada motor abre la página con doble clic y sin internet, en escritorio y en teléfono, carga los
 ejemplos y XML del disco, pega cifras como desde Excel, imprime, descarga el CSV y la plantilla, y revisa
@@ -244,7 +247,7 @@ que no salga ninguna petición ni ningún error en la consola.
 Probar en Firefox y en WebKit destapó dos defectos del informe impreso, ya corregidos y con su prueba:
 
 - **El pie saltaba a una segunda hoja.** Firefox y Safari redondean hacia arriba el alto de cada fila de la
-  tabla, y el informe de ejemplo se pasaba de la hoja carta por 3 a 5 px. Ahora queda a unos 20 px del
+  tabla, y el informe de ejemplo se pasaba de la hoja carta por 3 a 5 px. Ahora queda a unos 15 px del
   borde en los tres motores.
 - **El NIT de los terceros salía cortado** («19900020…»): la columna quedaba a una fracción de píxel de sus
   diez dígitos.
